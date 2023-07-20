@@ -1,20 +1,33 @@
-<!DOCTYPE html>
-<html data-bs-theme="dark" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('app')
 
-<head>
-    <meta charset="utf-8">
-    {{-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+@section('content_01')
+    <div class="row ps-5 justify-content-center">
+        <div class="col ps-5">
+            <h1 class="poppins-bold fw-bold pb-5">About Us</h1>
+            <p class="poppins-regular pt-5">BRIN adalah platform khusus yang menyediakan akses ke berbagai macam aset 3D
+                berkualitas
+                tinggi. Kami didedikasikan
+                untuk memenuhi kebutuhan para profesional dan penggemar yang tertarik dalam industri desain, animasi, game,
+                dan
+                produksi film.
 
-    <title>Laravel</title>
+                Tim kami yang berpengalaman telah bekerja keras untuk mengumpulkan dan mengkurasi koleksi yang luas dari
+                aset 3D
+                terbaik. Kami menawarkan berbagai kategori, termasuk model karakter, lingkungan, tekstur, efek visual, dan
+                masih
+                banyak lagi. Setiap aset dijamin memiliki kualitas yang luar biasa dan dapat disesuaikan sesuai kebutuhan
+                proyek
+                Anda.
 
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net" rel="preconnect">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-</head>
-
-<body class="antialiased">
-
-</body>
-
-</html>
+                Kami berkomitmen untuk menyediakan pengalaman yang mudah, cepat, dan terjangkau. Dengan navigasi yang
+                intuitif,
+                Anda
+                dapat dengan mudah menjelajahi koleksi kami, melakukan pencarian yang spesifik, dan mengunduh aset yang Anda
+                butuhkan. Kami juga memberikan dukungan pelanggan yang responsif untuk membantu menjawab pertanyaan Anda dan
+                memberikan solusi yang dibutuhkan.</p>
+        </div>
+        <div class="col justify-content-end mx-0 px-0">
+            <img class="float-end mx-auto" src="{{ asset('AboutUs/GedungBRIN.png') }}" width="auto" height="auto">
+        </div>
+    </div>
+@endsection
