@@ -5,10 +5,14 @@
     <meta name="viewport" charset="utf-8"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
-    <title>BRIN 3D ASSETS | @yield('title')</title>
+    <title>@yield('title') | BRIN 3D Assets</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Play:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
     <!-- Bootstrap 5.3.0 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"
@@ -32,7 +36,7 @@
 
         .poppins-bold {
             font-family: 'Poppins', sans-serif;
-            font-weight: 400;
+            font-weight: 700;
         }
 
         html,
@@ -47,7 +51,7 @@
     <nav
         class="navbar navbar-expand-md navbar-light fixed-top mb-4 py-4 bg-light border-bottom border-secondary-subtle">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url()->current() }}">
+            <a class="navbar-brand" href="{{ route('home') }}">
                 <img class="d-inline-block align-text-top ms-5 mx-3" src="{{ asset('Logo/Alt_Logo_BRIN 1.png') }}"
                     width="auto" height="30">
             </a>
@@ -58,13 +62,16 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link fw-medium poppins-regular" href="{{ url()->current() }}">Home</a>
+                        <a class="nav-link fw-medium poppins-regular {{ $activeNavItem == 'home' ? 'active' : '' }}"
+                            href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-medium poppins-regular" href="{{ url()->current() }}">Explore</a>
+                        <a class="nav-link fw-medium poppins-regular {{ $activeNavItem == 'explore' ? 'active' : '' }}"
+                            href="{{ route('explore') }}">Explore</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-medium poppins-regular active" href="{{ url()->current() }}">About Us</a>
+                        <a class="nav-link fw-medium poppins-regular {{ $activeNavItem == 'about_us' ? 'active' : '' }}"
+                            href="{{ route('about_us') }}">About Us</a>
                     </li>
                 </ul>
                 <div class="me-5">
@@ -73,8 +80,8 @@
                             width="auto" height="30">
                     </a>
                     <a href="{{ url()->current() }}" style="text-decoration: none">
-                        <img class="d-inline-block align-text-top px-3" src="{{ asset('Icon/fav.png') }}" width="auto"
-                            height="30">
+                        <img class="d-inline-block align-text-top px-3" src="{{ asset('Icon/fav.png') }}"
+                            width="auto" height="30">
                     </a>
                     <a href="{{ url()->current() }}" style="text-decoration: none">
                         <img class="d-inline-block align-text-top px-3" src="{{ asset('Icon/account.png') }}"

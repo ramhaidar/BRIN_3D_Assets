@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NavigationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get ( '/', function ()
+// {
+//     return view ( 'welcome' );
+// } );
+
+Route::get ( '/', action: [ 
+    NavigationController::class,
+    'home'
+] )->name ( 'home' );
+
+Route::get ( '/explore', action: [ 
+    NavigationController::class,
+    'explore'
+] )->name ( 'explore' );
+
+Route::get ( '/about_us', action: [ 
+    NavigationController::class,
+    'about_us'
+] )->name ( 'about_us' );

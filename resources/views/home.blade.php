@@ -1,4 +1,4 @@
-@section('title', 'About Us')
+@section('title', 'Home')
 
 @extends('app')
 
