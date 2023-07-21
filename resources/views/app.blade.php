@@ -5,7 +5,7 @@
     <meta name="viewport" charset="utf-8"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
-    <title>About Us</title>
+    <title>BRIN 3D ASSETS | @yield('title')</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">

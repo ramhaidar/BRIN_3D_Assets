@@ -1,3 +1,5 @@
+@section('title', 'About Us')
+
 @extends('app')
 
 @section('content_01')
