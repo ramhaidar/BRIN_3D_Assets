@@ -120,15 +120,17 @@
                     <a class="nav-link poppins-regular text-center" id="selector" href="#">Most Download</a>
                 </li>
             </ul>
-            <div class="container ps-0 flex-fill" id="underlineBG"></div>
+
         </div>
 
         <div
             class="container-fluid d-flex flex-row align-content-center justify-content-start h-100 w-100 pt-5 ps-5 pb-2 pe-5">
             <div class="row row-cols-md-4 g-4">
+                <!-- 001 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/01.png') }}">
+                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/01.png') }}"
+                            style="height: 240px; width: auto">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -157,9 +159,12 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 002 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/02.png') }}">
+                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/02.png') }}"
+                            style="height: 240px; width: auto">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -188,9 +193,12 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 003 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/03.png') }}">
+                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/03.png') }}"
+                            style="height: 240px; width: auto">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -219,9 +227,12 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 004 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/04.png') }}">
+                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/04.png') }}"
+                            style="height: 240px; width: auto">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -250,116 +261,175 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 005 Card -->
                 <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" role="img" aria-label="Placeholder: Thumbnail"
-                            width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%"
-                                y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
+                    <div class="card shadow-sm rounded-3">
+                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/05.png') }}"
+                            style="height: 240px; width: auto">
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">View</button>
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">Edit</button>
+                            <a class="fav-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
+                            <h5 class="card-title">Beach Seashore</h5>
+                            <p class="card-text text-secondary">Haidarrudin Ramdhan</p>
+                        </div>
+                        <div class="card-footer ms-0 ps-0">
+                            <div class="container ms-1">
+                                <div class="row">
+                                    <div class="col justify-content-center align-content-center">
+                                        <i class="bi bi-star-fill ps-0 ms-0 pe-1" style="color: #006AFF"></i>
+                                        <span class="text-dark text-center">4.1</span> <span class="text-secondary">(30
+                                            Review)</span>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <a class="text-black text-decoration-underline" href="#">Details</a>
+                                    </div>
                                 </div>
-                                <small class="text-body-secondary">9 mins</small>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- 006 Card -->
                 <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" role="img" aria-label="Placeholder: Thumbnail"
-                            width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%"
-                                y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
+                    <div class="card shadow-sm rounded-3">
+                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/06.png') }}"
+                            style="height: 240px; width: auto">
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">View</button>
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">Edit</button>
+                            <a class="fav-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
+                            <h5 class="card-title">Lambo Aventador</h5>
+                            <p class="card-text text-secondary">Daffa Ferdiansyah</p>
+                        </div>
+                        <div class="card-footer ms-0 ps-0">
+                            <div class="container ms-1">
+                                <div class="row">
+                                    <div class="col justify-content-center align-content-center">
+                                        <i class="bi bi-star-fill ps-0 ms-0 pe-1" style="color: #006AFF"></i>
+                                        <span class="text-dark text-center">4.5</span> <span class="text-secondary">(23
+                                            Review)</span>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <a class="text-black text-decoration-underline" href="#">Details</a>
+                                    </div>
                                 </div>
-                                <small class="text-body-secondary">9 mins</small>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- 007 Card -->
                 <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" role="img" aria-label="Placeholder: Thumbnail"
-                            width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%"
-                                y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
+                    <div class="card shadow-sm rounded-3">
+                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/07.png') }}"
+                            style="height: 240px; width: auto">
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">View</button>
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">Edit</button>
+                            <a class="fav-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
+                            <h5 class="card-title">Rayonier Train</h5>
+                            <p class="card-text text-secondary">Daffa Ferdiansyah</p>
+                        </div>
+                        <div class="card-footer ms-0 ps-0">
+                            <div class="container ms-1">
+                                <div class="row">
+                                    <div class="col justify-content-center align-content-center">
+                                        <i class="bi bi-star-fill ps-0 ms-0 pe-1" style="color: #006AFF"></i>
+                                        <span class="text-dark text-center">4.21</span> <span class="text-secondary">(28
+                                            Review)</span>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <a class="text-black text-decoration-underline" href="#">Details</a>
+                                    </div>
                                 </div>
-                                <small class="text-body-secondary">9 mins</small>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- 008 Card -->
                 <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" role="img" aria-label="Placeholder: Thumbnail"
-                            width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%"
-                                y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
+                    <div class="card shadow-sm rounded-3">
+                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/08.png') }}">
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">View</button>
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">Edit</button>
+                            <a class="fav-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
+                            <h5 class="card-title">3D Toolkit</h5>
+                            <p class="card-text text-secondary">Fitri Handayani</p>
+                        </div>
+                        <div class="card-footer ms-0 ps-0">
+                            <div class="container ms-1">
+                                <div class="row">
+                                    <div class="col justify-content-center align-content-center">
+                                        <i class="bi bi-star-fill ps-0 ms-0 pe-1" style="color: #006AFF"></i>
+                                        <span class="text-dark text-center">3.92</span> <span class="text-secondary">(35
+                                            Review)</span>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <a class="text-black text-decoration-underline" href="#">Details</a>
+                                    </div>
                                 </div>
-                                <small class="text-body-secondary">9 mins</small>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- 009 Card -->
                 <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" role="img" aria-label="Placeholder: Thumbnail"
-                            width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                            preserveAspectRatio="xMidYMid slice" focusable="false">
-                            <title>Placeholder</title>
-                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%"
-                                y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                        </svg>
+                    <div class="card shadow-sm rounded-3">
+                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/08.png') }}">
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">View</button>
-                                    <button class="btn btn-sm btn-outline-secondary" type="button">Edit</button>
+                            <a class="fav-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
+                            <h5 class="card-title">3D Toolkit</h5>
+                            <p class="card-text text-secondary">Fitri Handayani</p>
+                        </div>
+                        <div class="card-footer ms-0 ps-0">
+                            <div class="container ms-1">
+                                <div class="row">
+                                    <div class="col justify-content-center align-content-center">
+                                        <i class="bi bi-star-fill ps-0 ms-0 pe-1" style="color: #006AFF"></i>
+                                        <span class="text-dark text-center">3.92</span> <span class="text-secondary">(35
+                                            Review)</span>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <a class="text-black text-decoration-underline" href="#">Details</a>
+                                    </div>
                                 </div>
-                                <small class="text-body-secondary">9 mins</small>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </main>
