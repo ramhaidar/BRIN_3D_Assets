@@ -423,7 +423,109 @@
                     </div>
                 </div>
 
+                <!-- 010 Card -->
+                <div class="col">
+                    <div class="card shadow-sm rounded-3">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/10.png') }}">
+                        <div class="card-body">
+                            <a class="fav-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
+                            <h5 class="card-title">Space Shuttle NASA</h5>
+                            <p class="card-text text-secondary">Dimas Rifki</p>
+                        </div>
+                        <div class="card-footer ms-0 ps-0">
+                            <div class="container ms-1">
+                                <div class="row">
+                                    <div class="col justify-content-center align-content-center">
+                                        <i class="bi bi-star-fill ps-0 ms-0 pe-1" style="color: #006AFF"></i>
+                                        <span class="text-dark text-center">4.2</span> <span class="text-secondary">(21
+                                            Review)</span>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <a class="text-black text-decoration-underline" href="#">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 011 Card -->
+                <div class="col">
+                    <div class="card shadow-sm rounded-3">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/11.png') }}">
+                        <div class="card-body">
+                            <a class="fav-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
+                            <h5 class="card-title">RL-10 Rocket Engine</h5>
+                            <p class="card-text text-secondary">Dufha Arista</p>
+                        </div>
+                        <div class="card-footer ms-0 ps-0">
+                            <div class="container ms-1">
+                                <div class="row">
+                                    <div class="col justify-content-center align-content-center">
+                                        <i class="bi bi-star-fill ps-0 ms-0 pe-1" style="color: #006AFF"></i>
+                                        <span class="text-dark text-center">4.5</span> <span class="text-secondary">(37
+                                            Review)</span>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <a class="text-black text-decoration-underline" href="#">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 012 Card -->
+                <div class="col">
+                    <div class="card shadow-sm rounded-3">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/12.png') }}">
+                        <div class="card-body">
+                            <a class="fav-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
+                            <h5 class="card-title">Ocean Gate TItan</h5>
+                            <p class="card-text text-secondary">Dimas Rifki</p>
+                        </div>
+                        <div class="card-footer ms-0 ps-0">
+                            <div class="container ms-1">
+                                <div class="row">
+                                    <div class="col justify-content-center align-content-center">
+                                        <i class="bi bi-star-fill ps-0 ms-0 pe-1" style="color: #006AFF"></i>
+                                        <span class="text-dark text-center">4.7</span> <span class="text-secondary">(49
+                                            Review)</span>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <a class="text-black text-decoration-underline" href="#">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+        </div>
+
+        <div class="pt-5">
         </div>
     </main>
 @endsection
