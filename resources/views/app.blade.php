@@ -44,6 +44,11 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
         }
+
+        .customimg {
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
     </style>
 
     @yield('customStyle')

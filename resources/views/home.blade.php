@@ -129,8 +129,7 @@
                 <!-- 001 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/01.png') }}"
-                            style="height: 240px; width: auto">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/01.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -163,8 +162,7 @@
                 <!-- 002 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/02.png') }}"
-                            style="height: 240px; width: auto">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/02.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -197,8 +195,7 @@
                 <!-- 003 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/03.png') }}"
-                            style="height: 240px; width: auto">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/03.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -231,8 +228,7 @@
                 <!-- 004 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/04.png') }}"
-                            style="height: 240px; width: auto">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/04.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -265,8 +261,7 @@
                 <!-- 005 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/05.png') }}"
-                            style="height: 240px; width: auto">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/05.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -299,8 +294,7 @@
                 <!-- 006 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/06.png') }}"
-                            style="height: 240px; width: auto">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/06.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -333,8 +327,7 @@
                 <!-- 007 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/07.png') }}"
-                            style="height: 240px; width: auto">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/07.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -367,7 +360,7 @@
                 <!-- 008 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/08.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/08.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -400,7 +393,7 @@
                 <!-- 009 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="card-img-top" src="{{ asset('Image/home_asset_example/08.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/09.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
