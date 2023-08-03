@@ -123,13 +123,12 @@
 
         </div>
 
-        <div
-            class="container-fluid d-flex flex-row align-content-center justify-content-start h-100 w-100 pt-5 ps-5 pb-2 pe-5">
+        <div class="container-fluid d-flex flex-row align-content-center justify-content-start h-100 w-100 px-5 ps-5 pb-2">
             <div class="row row-cols-md-4 g-4">
                 <!-- 001 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/01.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/01.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -162,7 +161,7 @@
                 <!-- 002 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/02.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/02.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -195,7 +194,7 @@
                 <!-- 003 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/03.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/03.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -228,7 +227,7 @@
                 <!-- 004 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/04.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/04.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -261,7 +260,7 @@
                 <!-- 005 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/05.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/05.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -294,7 +293,7 @@
                 <!-- 006 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/06.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/06.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -327,7 +326,7 @@
                 <!-- 007 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/07.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/07.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -360,7 +359,7 @@
                 <!-- 008 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/08.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/08.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -393,7 +392,7 @@
                 <!-- 009 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/09.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/09.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -426,7 +425,7 @@
                 <!-- 010 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/10.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/10.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -459,7 +458,7 @@
                 <!-- 011 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/11.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/11.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -492,7 +491,7 @@
                 <!-- 012 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
-                        <img class="customimg card-img-top" src="{{ asset('Image/home_asset_example/12.png') }}">
+                        <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/12.png') }}">
                         <div class="card-body">
                             <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
@@ -529,6 +528,49 @@
             <h1 class="poppins-bold text-center" style="font-size: 64px">Our Research</h1>
             <p class="poppins-regular text-center" style="font-size: 20px">Access a dozen amount of free asset on our
                 website.</p>
+
+            <div class="container-fluid px-5">
+                <div class="row justify-content-center py-3">
+                    <div class="col-3">
+                        <a href="#">
+                            <img class="customimg card-img-top" src="{{ asset('Image/home_research_example/001.png') }}">
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#">
+                            <img class="customimg card-img-top" src="{{ asset('Image/home_research_example/002.png') }}">
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#">
+                            <img class="customimg card-img-top" src="{{ asset('Image/home_research_example/003.png') }}">
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#">
+                            <img class="customimg card-img-top" src="{{ asset('Image/home_research_example/004.png') }}">
+                        </a>
+                    </div>
+                </div>
+                <div class="row justify-content-center py-3">
+                    <div class="col-3">
+                        <a href="#">
+                            <img class="customimg card-img-top" src="{{ asset('Image/home_research_example/005.png') }}">
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#">
+                            <img class="customimg card-img-top" src="{{ asset('Image/home_research_example/006.png') }}">
+                        </a>
+                    </div>
+                    <div class="col-3">
+                        <a href="#">
+                            <img class="customimg card-img-top" src="{{ asset('Image/home_research_example/007.png') }}">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 @endsection
