@@ -525,7 +525,10 @@
             </div>
         </div>
 
-        <div class="pt-5">
+        <div class="container-fluid h-100 w-100 pt-5">
+            <h1 class="poppins-bold text-center" style="font-size: 64px">Our Research</h1>
+            <p class="poppins-regular text-center" style="font-size: 20px">Access a dozen amount of free asset on our
+                website.</p>
         </div>
     </main>
 @endsection
