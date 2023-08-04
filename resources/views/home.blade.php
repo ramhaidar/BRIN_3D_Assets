@@ -1,6 +1,7 @@
 @section('title', 'Home')
 
 @extends('app')
+@extends('footer')
 
 @section('customStyle')
     <style>
@@ -52,7 +53,7 @@
 @endsection
 
 @section('content_01')
-    <main class="container-fluid h-100 w-100">
+    <main class="container-fluid px-0 py-0 h-100 w-100">
         <div class="pt-5">
             <div class="container-fluid d-flex justify-content-center align-items-center w-50">
                 <form class="container-fluid d-flex border border-dark-subtle rounded-3 p-1 px-2 pe-0 me-0 w-100">
@@ -65,7 +66,7 @@
         </div>
 
         <div class="container-fluid h-100 w-100 pt-5">
-            <h1 class="poppins-bold text-center" style="font-size: 64px">Find your assets freely !</h1>
+            <h1 class="poppins-bold text-center" style="font-size: 64px">Find your assets freely!</h1>
             <p class="poppins-regular text-center" style="font-size: 20px">Access a dozen amount of free asset discovery
                 tools on our website.</p>
         </div>
@@ -524,7 +525,7 @@
             </div>
         </div>
 
-        <div class="container-fluid h-100 w-100 pt-5">
+        <div class="container-fluid h-100 w-100 py-5">
             <h1 class="poppins-bold text-center" style="font-size: 64px">Our Research</h1>
             <p class="poppins-regular text-center" style="font-size: 20px">Access a dozen amount of free asset on our
                 website.</p>
@@ -572,5 +573,7 @@
             </div>
 
         </div>
+
+        @yield('footer')
     </main>
 @endsection
