@@ -13,42 +13,58 @@
 @endsection
 
 @section('content_01')
-    <main class="container-fluid d-flex h-100 w-100">
-        <div class="pt-0">
-            <div class="container-fluid px-0 ps-0">
-                <div class="row px-0 ps-0">
-                    <div class="col-4 px-0 py-0 pt-5 ps-5 pe-5" style="background-color: #F6F6F6;">
-                        <h1 class="poppins-bold pb-4">About Us</h1>
-                        <p class="poppins-regular pt-4">BRIN adalah platform khusus yang menyediakan akses ke
-                            berbagai macam aset 3D
-                            berkualitas tinggi. Kami didedikasikan untuk memenuhi kebutuhan para profesional dan penggemar
-                            yang
-                            tertarik
-                            dalam industri desain, animasi, game, dan produksi film.
-                            <br><br>
-                            Tim kami yang berpengalaman telah bekerja keras untuk mengumpulkan dan mengkurasi koleksi yang
-                            luas dari
-                            aset 3D terbaik. Kami menawarkan berbagai kategori, termasuk model karakter, lingkungan,
-                            tekstur, efek
-                            visual, dan masih banyak lagi. Setiap aset dijamin memiliki kualitas yang luar biasa dan dapat
-                            disesuaikan
-                            sesuai kebutuhan proyek Anda.
-                            <br><br>
-                            Kami berkomitmen untuk menyediakan pengalaman yang mudah, cepat, dan terjangkau. Dengan navigasi
-                            yang
-                            intuitif, Anda dapat dengan mudah menjelajahi koleksi kami, melakukan pencarian yang spesifik,
-                            dan
-                            mengunduh
-                            aset yang Anda butuhkan. Kami juga memberikan dukungan pelanggan yang responsif untuk membantu
-                            menjawab
-                            pertanyaan Anda dan memberikan solusi yang dibutuhkan.
-                        </p>
-                    </div>
-                    <div class="col mx-0 px-0">
-                        <img class="float-end mx-auto" src="{{ asset('AboutUs/GedungBRIN.png') }}" width="auto"
-                            height="auto">
+    <main class="container-fluid h-100 w-100" style="background-color: transparent; min-height: 92.2vh;">
+        <div class="flex-fill pt-3 px-0 py-0 h-100">
+            <div class="row px-0 py-0 h-100" style="background-color: transparent">
+                <div class="col-5 px-0 py-0 h-100" style="background-color: #F6F6F6">
+                    <div class="pt-5 px-5 ms-5">
+                        <a class="navbar-brand" href="{{ route('home') }}">
+                            <img class="align-text-top px-2" src="{{ asset('Logo/Logo BRIN_BIG.png') }}" width="auto"
+                                height="75">
+                        </a>
+                        <div class="pt-5 mt-5 py-0 pe-5 me-5">
+                            <h1 class="poppins-bold">Sign Up</h1>
+                            <h3 class="pt-4 poppins-bold">Your New Account</h3>
+
+                            <form class="pt-3" action="" method="POST">
+                                @CSRF
+                                <label class="form-label poppins-regular" for="Username">Choose a Username</label>
+                                <div class="input-group mb-3 shadow-sm">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    <span class="input-group-text poppins-regular">domain.id/u/</span>
+                                    <input class="form-control poppins-regular" id="Username" type="username"
+                                        aria-describedby="Username" placeholder="Username">
+                                </div>
+
+                                <label class="form-label poppins-regular" for="Email">E-Mail</label>
+                                <div class="input-group mb-3 shadow-sm">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input class="form-control poppins-regular" id="Email" type="email"
+                                        aria-describedby="Email" placeholder="you@domain.com">
+                                </div>
+
+                                <label class="form-label poppins-regular" for="Password">Create Password</label>
+                                <div class="input-group mb-3 shadow-sm">
+                                    <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
+                                    <input class="form-control poppins-regular" id="Password" type="password"
+                                        aria-describedby="Password" placeholder="Password">
+                                </div>
+
+                                <div class="d-grid gap-2 pt-5">
+                                    <button class="btn btn-danger poppins-regular shadow-sm" type="submit"
+                                        style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem;">Sign
+                                        Up</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
+                <div class="col d-flex mx-0 px-0 d-flex align-items-center justify-content-end"
+                    style="background-color: transparent">
+                    <img class="float-end" src="{{ asset('AboutUs/Gambar Gedung BRIN.png') }}" width="auto"
+                        height="700">
+                </div>
+
             </div>
         </div>
     </main>

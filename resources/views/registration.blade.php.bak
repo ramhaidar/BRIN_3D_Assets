@@ -1,0 +1,65 @@
+@section('title', 'About Us')
+
+@extends('app')
+
+@section('customStyle')
+    <style>
+        html,
+        body,
+        .container-fluid {
+            height: 92.5%;
+        }
+    </style>
+@endsection
+
+@section('content_01')
+    <main class="container-fluid d-flex h-100 w-100">
+        <div class="container-fluid px-0 ps-0">
+            <div class="row align-items-start px-0 ps-0">
+                <div class="col-1 flex-fill px-0 py-0 pt-5 ps-5 pe-5" style="background-color: #F6F6F6;">
+                    <div class="container-fluid pt-5 ps-5">
+                        <a class="navbar-brand" href="{{ route('home') }}">
+                            <img class="align-text-top px-2" src="{{ asset('Logo/Logo BRIN_BIG.png') }}" width="auto"
+                                height="75">
+                        </a>
+                        <div class="pt-5 mt-5 py-0">
+                            <h1 class="poppins-bold">Sign Up</h1>
+                            <h3 class="pt-3 poppins-bold">Your New Account</h3>
+
+                            <form class="pt-5" action="" method="POST">
+                                @CSRF
+                                <label class="form-label" for="Username">Choose a Username</label>
+                                <div class="input-group mb-3 shadow-sm">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    <span class="input-group-text">domain.id/u/</span>
+                                    <input class="form-control" id="Username" type="username" aria-describedby="Username"
+                                        placeholder="Username">
+                                </div>
+
+                                <label class="form-label" for="Email">E-Mail</label>
+                                <div class="input-group mb-3 shadow-sm">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input class="form-control" id="Email" type="email" aria-describedby="Email"
+                                        placeholder="you@domain.com">
+                                </div>
+
+                                <label class="form-label" for="Password">Create Password</label>
+                                <div class="input-group mb-3 shadow-sm">
+                                    <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
+                                    <input class="form-control" id="Password" type="password" aria-describedby="Password"
+                                        placeholder="Password">
+                                </div>
+
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mx-0 px-0">
+                    <img class="float-end mx-auto" src="{{ asset('AboutUs/GedungBRIN.png') }}" width="auto"
+                        height="auto">
+                </div>
+            </div>
+        </div>
+    </main>
+@endsection
