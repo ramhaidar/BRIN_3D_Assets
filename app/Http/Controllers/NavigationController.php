@@ -35,4 +35,14 @@ class NavigationController extends Controller
             ] );
         }
     }
+
+    public function signup ( Request $request )
+    {
+        if ( request ()->segment ( 1 ) != 'api' )
+        {
+            return view ( "registration" )->with ( [ 
+                "activeNavItem" => "signup",
+            ] );
+        }
+    }
 }

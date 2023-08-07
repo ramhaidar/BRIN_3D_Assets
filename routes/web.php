@@ -33,3 +33,8 @@ Route::get ( '/about_us', action: [
     NavigationController::class,
     'about_us'
 ] )->name ( 'about_us' );
+
+Route::get ( '/signup', action: [ 
+    NavigationController::class,
+    'signup'
+] )->name ( 'signup' );

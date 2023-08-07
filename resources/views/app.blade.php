@@ -82,9 +82,10 @@
     <nav
         class="navbar navbar-expand-md navbar-light fixed-top mb-4 py-4 bg-light border-bottom border-secondary-subtle">
         <div class="container-fluid">
+            <div class="ms-5"></div>
             <a class="navbar-brand" href="{{ route('home') }}">
-                <img class="d-inline-block align-text-top ms-5 mx-3" src="{{ asset('Logo/Alt_Logo_BRIN 1.png') }}"
-                    width="auto" height="30">
+                <img class="align-text-top px-2" src="{{ asset('Logo/Alt_Logo_BRIN 1.png') }}" width="auto"
+                    height="30">
             </a>
             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" type="button"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -105,16 +106,24 @@
                             href="{{ route('about_us') }}">About Us</a>
                     </li>
                 </ul>
-                <div class="me-5">
-                    <a href="{{ url()->current() }}" style="text-decoration: none">
+            </div>
+        </div>
+        <div class="container justify-content-end">
+            <div class="row align-items-end">
+                <div class="col">
+                    <a class="text-decoration-none" href="{{ url()->current() }}">
                         <img class="d-inline-block align-text-top px-3" src="{{ asset('Icon/download.png') }}"
                             width="auto" height="30">
                     </a>
-                    <a href="{{ url()->current() }}" style="text-decoration: none">
+                </div>
+                <div class="col">
+                    <a class="text-decoration-none" href="{{ url()->current() }}">
                         <img class="d-inline-block align-text-top px-3" src="{{ asset('Icon/fav.png') }}"
                             width="auto" height="30">
                     </a>
-                    <a href="{{ url()->current() }}" style="text-decoration: none">
+                </div>
+                <div class="col">
+                    <a class="text-decoration-none" href="{{ route('signup') }}">
                         <img class="d-inline-block align-text-top px-3" src="{{ asset('Icon/account.png') }}"
                             width="auto" height="30">
                     </a>
