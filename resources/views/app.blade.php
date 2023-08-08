@@ -108,25 +108,36 @@
                 </ul>
             </div>
         </div>
-        <div class="container justify-content-end">
-            <div class="row align-items-end">
-                <div class="col">
+        <div class="container-fluid justify-content-end">
+            <div class="d-flex flex-row align-items-end">
+                {{-- <div class="col px-0 ps-3">
                     <a class="text-decoration-none" href="{{ url()->current() }}">
                         <img class="d-inline-block align-text-top px-3" src="{{ asset('Icon/download.png') }}"
-                            width="auto" height="30">
+                            width="auto" height="25">
                     </a>
                 </div>
-                <div class="col">
+                <div class="col px-0">
                     <a class="text-decoration-none" href="{{ url()->current() }}">
                         <img class="d-inline-block align-text-top px-3" src="{{ asset('Icon/fav.png') }}"
-                            width="auto" height="30">
+                            width="auto" height="25">
                     </a>
                 </div>
-                <div class="col">
+                <div class="col px-0 pe-3">
                     <a class="text-decoration-none" href="{{ route('signup') }}">
                         <img class="d-inline-block align-text-top px-3" src="{{ asset('Icon/account.png') }}"
-                            width="auto" height="30">
+                            width="auto" height="25">
                     </a>
+                </div> --}}
+
+                <div class="col-6 px-0">
+                    <a class="btn rounded-pill" href="{{ route('signup') }}" role="button"
+                        style="background-color: #E67E22; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: .9rem;">Sign
+                        Up</a>
+                </div>
+                <div class="col-6 px-0 me-5">
+                    <a class="btn rounded-pill" href="{{ route('signin') }}" role="button"
+                        style="background-color: #3498DB; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: .9rem;">Sign
+                        In</a>
                 </div>
             </div>
         </div>

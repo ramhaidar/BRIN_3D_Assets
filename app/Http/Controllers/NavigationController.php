@@ -45,4 +45,13 @@ class NavigationController extends Controller
             ] );
         }
     }
+    public function signin ( Request $request )
+    {
+        if ( request ()->segment ( 1 ) != 'api' )
+        {
+            return view ( "login" )->with ( [ 
+                "activeNavItem" => "signin",
+            ] );
+        }
+    }
 }

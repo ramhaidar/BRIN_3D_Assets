@@ -1,4 +1,4 @@
-@section('title', 'Sign Up')
+@section('title', 'Sign In')
 
 @extends('app')
 
@@ -23,27 +23,20 @@
                                 height="75">
                         </a>
                         <div class="pt-5 mt-5 py-0 pe-5 me-5">
-                            <h1 class="poppins-bold">Sign Up</h1>
-                            <h3 class="pt-4 poppins-bold">Your New Account</h3>
+                            <h1 class="poppins-bold">Sign In</h1>
+                            <h3 class="pt-4 poppins-bold">Your Account</h3>
 
                             <form class="pt-3" action="" method="POST">
                                 @CSRF
-                                <label class="form-label poppins-regular" for="Username">Choose a Username</label>
+                                <label class="form-label poppins-regular" for="Username">Username or Email</label>
                                 <div class="input-group mb-3 shadow-sm">
                                     <span class="input-group-text"><i class="bi bi-person"></i></span>
-                                    <span class="input-group-text poppins-regular">domain.id/u/</span>
-                                    <input class="form-control poppins-regular" id="Username" type="username"
-                                        aria-describedby="Username" placeholder="Username">
-                                </div>
-
-                                <label class="form-label poppins-regular" for="Email">E-Mail</label>
-                                <div class="input-group mb-3 shadow-sm">
                                     <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                                    <input class="form-control poppins-regular" id="Email" type="email"
-                                        aria-describedby="Email" placeholder="you@domain.com">
+                                    <input class="form-control poppins-regular" id="Username" type="username"
+                                        aria-describedby="Username" placeholder="Username or Email">
                                 </div>
 
-                                <label class="form-label poppins-regular" for="Password">Create Password</label>
+                                <label class="form-label poppins-regular" for="Password">Password</label>
                                 <div class="input-group mb-3 shadow-sm">
                                     <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
                                     <input class="form-control poppins-regular" id="Password" type="password"
@@ -51,9 +44,9 @@
                                 </div>
 
                                 <div class="px-0 py-0">
-                                    <p class="poppins-regular">Already have an account?
-                                        <a class="poppins-regular" href="{{ route('signin') }}"
-                                            style="text-decoration: none;">Sign In
+                                    <p class="poppins-regular">Don't have an account?
+                                        <a class="poppins-regular" href="{{ route('signup') }}"
+                                            style="text-decoration: none;">Sign Up
                                         </a>
                                     </p>
                                 </div>

@@ -38,3 +38,8 @@ Route::get ( '/signup', action: [
     NavigationController::class,
     'signup'
 ] )->name ( 'signup' );
+
+Route::get ( '/signin', action: [ 
+    NavigationController::class,
+    'signin'
+] )->name ( 'signin' );
