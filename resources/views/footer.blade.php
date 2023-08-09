@@ -1,10 +1,10 @@
-@section('footer')
-    <div class="container-fluid h-100 w-100 pt-5" style="background-color: #F7F9FA;">
-        <div class="container h-100 w-100">
+@section('footerx')
+    <div class="container w-100 pt-5 px-0 py-0" style="background-color: #F7F9FA; max-width: 100%">
+        <div class="container w-100">
             <footer class="pb-3">
                 <div class="row">
                     <div class="col-6 col-md-2 mb-3">
-                        <ul class="nav flex-column">
+                        <ul class="nav">
                             <li class="nav-item mb-2"><a class="navbar-brand" href="{{ route('home') }}">
                                     <img class="d-inline-block align-text-top" src="{{ asset('Logo/Alt_Logo_BRIN 1.png') }}"
                                         width="auto" height="40">
@@ -49,7 +49,7 @@
                     <div class="col-lg-3 col-md-2 mb-3">
                         <h5 class="montserrat-bold py-2">Contact Info</h5>
 
-                        <div class="container-fluid px-0">
+                        <div class="container px-0">
                             <div class="row align-items-start">
                                 <div class="col-1">
                                     <i class="bi bi-geo-alt" style="color: #0a58cc"></i>
@@ -61,7 +61,7 @@
                             </div>
                         </div>
 
-                        <div class="container-fluid px-0">
+                        <div class="container px-0">
                             <div class="row align-items-start">
                                 <div class="col-1">
                                     <i class="bi bi-telephone" style="color: #0a58cc"></i>
@@ -72,7 +72,7 @@
                             </div>
                         </div>
 
-                        <div class="container-fluid px-0">
+                        <div class="container px-0">
                             <div class="row align-items-start">
                                 <div class="col-1">
                                     <i class="bi bi-envelope" style="color: #0a58cc"></i>
@@ -109,9 +109,10 @@
                     </div>
                 </div>
             </footer>
-        </div>
 
-        <div class="d-flex flex-column flex-sm-row justify-content-center pt-2 border-top w-100 h-100 mulish-regular">
+        </div>
+        <div
+            class="container-fluid text-center border-top border-secondary-subtle w-100 mulish-regular pt-3 pb-1 px-0 py-0">
             <p>©2023 BRIN Ltd, All rights reserved.</p>
         </div>
     </div>
