@@ -71,7 +71,6 @@
 
         .customimg {
             width: 100%;
-            object-fit: cover;
             aspect-ratio: 16/9;
         }
     </style>
@@ -131,13 +130,13 @@
                 </div> --}}
 
                 <div class="col-6 px-0">
-                    <a class="btn rounded-pill shadow-sm" href="{{ route('signup') }}" role="button"
-                        style="background-color: #E67E22; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">Sign
+                    <a class="btn rounded-pill" href="{{ route('signup') }}" role="button"
+                        style="background-color: #E67E22; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: .9rem;">Sign
                         Up</a>
                 </div>
                 <div class="col-6 px-0 me-5">
-                    <a class="btn rounded-pill shadow-sm" href="{{ route('signin') }}" role="button"
-                        style="background-color: #3498DB; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">Sign
+                    <a class="btn rounded-pill" href="{{ route('signin') }}" role="button"
+                        style="background-color: #3498DB; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: .9rem;">Sign
                         In</a>
                 </div>
             </div>
@@ -146,11 +145,9 @@
 
     <div class="mb-4"><br><br></div>
 
-    <div class="px-0 py-0">
-        @yield('content_01')
-    </div>
+    @yield('content_01')
 
-    @yield('footerx')
+    @yield('footer')
 
     <!-- Bootstrap 5.3.0 JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"

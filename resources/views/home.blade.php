@@ -118,28 +118,27 @@
                     <a class="nav-link poppins-regular text-center" id="selector" href="#">Most Viewed</a>
                 </li>
                 <li class="nav-item flex-fill">
-                    <a class="nav-link poppins-regular text-center" id="selector" href="#">Most Converted</a>
+                    <a class="nav-link poppins-regular text-center" id="selector" href="#">Most Download</a>
                 </li>
             </ul>
 
         </div>
 
-        <div
-            class="container-fluid d-flex flex-row align-content-center justify-content-start h-100 w-100 px-5 ps-5 pt-3 pb-2">
+        <div class="container-fluid d-flex flex-row align-content-center justify-content-start h-100 w-100 px-5 ps-5 pb-2">
             <div class="row row-cols-md-4 g-4">
                 <!-- 001 Card -->
                 <div class="col">
                     <div class="card shadow-sm rounded-3">
                         <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/01.png') }}">
                         <div class="card-body">
-                            <a class="download-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                            </a>
-                            {{-- <a class="fav-btn" href="#">
+                            <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
                                     src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
                             <h5 class="card-title fw-medium poppins-regular">Maersk Ship</h5>
                             <p class="card-text poppins-regular" style="color: #AEABAB">Dimas Rifki</p>
                         </div>
@@ -151,7 +150,7 @@
                                         <span class="text-dark text-center">4.6</span> <span class="text-secondary">(24
                                             Review)</span>
                                     </div>
-                                    <div class="col-5 text-end">
+                                    <div class="col-6 text-end">
                                         <a class="text-black text-decoration-underline" href="#">Details</a>
                                     </div>
                                 </div>
@@ -165,14 +164,14 @@
                     <div class="card shadow-sm rounded-3">
                         <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/02.png') }}">
                         <div class="card-body">
-                            <a class="download-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                            </a>
-                            {{-- <a class="fav-btn" href="#">
+                            <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
                                     src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
                             <h5 class="card-title">Space Shuttle</h5>
                             <p class="card-text text-secondary">Fitri Handayani</p>
                         </div>
@@ -184,7 +183,7 @@
                                         <span class="text-dark text-center">4.2</span> <span class="text-secondary">(32
                                             Review)</span>
                                     </div>
-                                    <div class="col-5 text-end">
+                                    <div class="col-6 text-end">
                                         <a class="text-black text-decoration-underline" href="#">Details</a>
                                     </div>
                                 </div>
@@ -198,14 +197,14 @@
                     <div class="card shadow-sm rounded-3">
                         <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/03.png') }}">
                         <div class="card-body">
-                            <a class="download-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                            </a>
-                            {{-- <a class="fav-btn" href="#">
+                            <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
                                     src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
                             <h5 class="card-title">Ford Model T-1924</h5>
                             <p class="card-text text-secondary">Dufha Arista</p>
                         </div>
@@ -217,7 +216,7 @@
                                         <span class="text-dark text-center">4.0</span> <span class="text-secondary">(27
                                             Review)</span>
                                     </div>
-                                    <div class="col-5 text-end">
+                                    <div class="col-6 text-end">
                                         <a class="text-black text-decoration-underline" href="#">Details</a>
                                     </div>
                                 </div>
@@ -231,14 +230,14 @@
                     <div class="card shadow-sm rounded-3">
                         <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/04.png') }}">
                         <div class="card-body">
-                            <a class="download-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                            </a>
-                            {{-- <a class="fav-btn" href="#">
+                            <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
                                     src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
                             <h5 class="card-title">Sci-fi Fighter</h5>
                             <p class="card-text text-secondary">Risma Amaliyah</p>
                         </div>
@@ -250,7 +249,7 @@
                                         <span class="text-dark text-center">3.8</span> <span class="text-secondary">(20
                                             Review)</span>
                                     </div>
-                                    <div class="col-5 text-end">
+                                    <div class="col-6 text-end">
                                         <a class="text-black text-decoration-underline" href="#">Details</a>
                                     </div>
                                 </div>
@@ -264,14 +263,14 @@
                     <div class="card shadow-sm rounded-3">
                         <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/05.png') }}">
                         <div class="card-body">
-                            <a class="download-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                            </a>
-                            {{-- <a class="fav-btn" href="#">
+                            <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
                                     src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
                             <h5 class="card-title">Beach Seashore</h5>
                             <p class="card-text text-secondary">Haidarrudin Ramdhan</p>
                         </div>
@@ -283,7 +282,7 @@
                                         <span class="text-dark text-center">4.1</span> <span class="text-secondary">(30
                                             Review)</span>
                                     </div>
-                                    <div class="col-5 text-end">
+                                    <div class="col-6 text-end">
                                         <a class="text-black text-decoration-underline" href="#">Details</a>
                                     </div>
                                 </div>
@@ -297,14 +296,14 @@
                     <div class="card shadow-sm rounded-3">
                         <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/06.png') }}">
                         <div class="card-body">
-                            <a class="download-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                            </a>
-                            {{-- <a class="fav-btn" href="#">
+                            <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
                                     src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
                             <h5 class="card-title">Lambo Aventador</h5>
                             <p class="card-text text-secondary">Daffa Ferdiansyah</p>
                         </div>
@@ -316,7 +315,7 @@
                                         <span class="text-dark text-center">4.5</span> <span class="text-secondary">(23
                                             Review)</span>
                                     </div>
-                                    <div class="col-5 text-end">
+                                    <div class="col-6 text-end">
                                         <a class="text-black text-decoration-underline" href="#">Details</a>
                                     </div>
                                 </div>
@@ -330,14 +329,14 @@
                     <div class="card shadow-sm rounded-3">
                         <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/07.png') }}">
                         <div class="card-body">
-                            <a class="download-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                            </a>
-                            {{-- <a class="fav-btn" href="#">
+                            <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
                                     src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
                             <h5 class="card-title">Rayonier Train</h5>
                             <p class="card-text text-secondary">Daffa Ferdiansyah</p>
                         </div>
@@ -349,7 +348,7 @@
                                         <span class="text-dark text-center">4.21</span> <span class="text-secondary">(28
                                             Review)</span>
                                     </div>
-                                    <div class="col-5 text-end">
+                                    <div class="col-6 text-end">
                                         <a class="text-black text-decoration-underline" href="#">Details</a>
                                     </div>
                                 </div>
@@ -363,14 +362,14 @@
                     <div class="card shadow-sm rounded-3">
                         <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/08.png') }}">
                         <div class="card-body">
-                            <a class="download-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                            </a>
-                            {{-- <a class="fav-btn" href="#">
+                            <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
                                     src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
                             <h5 class="card-title">3D Toolkit</h5>
                             <p class="card-text text-secondary">Fitri Handayani</p>
                         </div>
@@ -382,7 +381,7 @@
                                         <span class="text-dark text-center">3.92</span> <span class="text-secondary">(35
                                             Review)</span>
                                     </div>
-                                    <div class="col-5 text-end">
+                                    <div class="col-6 text-end">
                                         <a class="text-black text-decoration-underline" href="#">Details</a>
                                     </div>
                                 </div>
@@ -396,14 +395,14 @@
                     <div class="card shadow-sm rounded-3">
                         <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/09.png') }}">
                         <div class="card-body">
-                            <a class="download-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                            </a>
-                            {{-- <a class="fav-btn" href="#">
+                            <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
                                     src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
                             <h5 class="card-title">3D Toolkit</h5>
                             <p class="card-text text-secondary">Fitri Handayani</p>
                         </div>
@@ -415,7 +414,7 @@
                                         <span class="text-dark text-center">3.92</span> <span class="text-secondary">(35
                                             Review)</span>
                                     </div>
-                                    <div class="col-5 text-end">
+                                    <div class="col-6 text-end">
                                         <a class="text-black text-decoration-underline" href="#">Details</a>
                                     </div>
                                 </div>
@@ -429,14 +428,14 @@
                     <div class="card shadow-sm rounded-3">
                         <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/10.png') }}">
                         <div class="card-body">
-                            <a class="download-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                            </a>
-                            {{-- <a class="fav-btn" href="#">
+                            <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
                                     src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
                             <h5 class="card-title">Space Shuttle NASA</h5>
                             <p class="card-text text-secondary">Dimas Rifki</p>
                         </div>
@@ -448,7 +447,7 @@
                                         <span class="text-dark text-center">4.2</span> <span class="text-secondary">(21
                                             Review)</span>
                                     </div>
-                                    <div class="col-5 text-end">
+                                    <div class="col-6 text-end">
                                         <a class="text-black text-decoration-underline" href="#">Details</a>
                                     </div>
                                 </div>
@@ -462,14 +461,14 @@
                     <div class="card shadow-sm rounded-3">
                         <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/11.png') }}">
                         <div class="card-body">
-                            <a class="download-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                            </a>
-                            {{-- <a class="fav-btn" href="#">
+                            <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
                                     src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
                             <h5 class="card-title">RL-10 Rocket Engine</h5>
                             <p class="card-text text-secondary">Dufha Arista</p>
                         </div>
@@ -481,7 +480,7 @@
                                         <span class="text-dark text-center">4.5</span> <span class="text-secondary">(37
                                             Review)</span>
                                     </div>
-                                    <div class="col-5 text-end">
+                                    <div class="col-6 text-end">
                                         <a class="text-black text-decoration-underline" href="#">Details</a>
                                     </div>
                                 </div>
@@ -495,14 +494,14 @@
                     <div class="card shadow-sm rounded-3">
                         <img class="customimg card-img-top" src="{{ asset('Image/home_category_example/12.png') }}">
                         <div class="card-body">
-                            <a class="download-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                            </a>
-                            {{-- <a class="fav-btn" href="#">
+                            <a class="fav-btn" href="#">
                                 <img class="img-fluid customShadow bg-transparent"
                                     src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
+                            </a>
+                            <a class="download-btn" href="#">
+                                <img class="img-fluid customShadow bg-transparent"
+                                    src="{{ asset('Icon/home_assets_icon/download.png') }}">
+                            </a>
                             <h5 class="card-title">Ocean Gate TItan</h5>
                             <p class="card-text text-secondary">Dimas Rifki</p>
                         </div>
@@ -514,7 +513,7 @@
                                         <span class="text-dark text-center">4.7</span> <span class="text-secondary">(49
                                             Review)</span>
                                     </div>
-                                    <div class="col-5 text-end">
+                                    <div class="col-6 text-end">
                                         <a class="text-black text-decoration-underline" href="#">Details</a>
                                     </div>
                                 </div>

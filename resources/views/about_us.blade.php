@@ -14,7 +14,7 @@
 
 @section('content_01')
     <main class="container-fluid d-flex h-100 w-100">
-        <div class="pt-5 mt-5">
+        <div class="pt-5">
             <div class="container-fluid d-flex justify-content-center align-items-center px-0 mx-0">
                 <div class="row ps-5">
                     <div class="col ps-5">
