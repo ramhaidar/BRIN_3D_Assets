@@ -111,25 +111,6 @@
         </div>
         <div class="container-fluid justify-content-end">
             <div class="d-flex flex-row align-items-end">
-                {{-- <div class="col px-0 ps-3">
-                    <a class="text-decoration-none" href="{{ url()->current() }}">
-                        <img class="d-inline-block align-text-top px-3" src="{{ asset('Icon/download.png') }}"
-                            width="auto" height="25">
-                    </a>
-                </div>
-                <div class="col px-0">
-                    <a class="text-decoration-none" href="{{ url()->current() }}">
-                        <img class="d-inline-block align-text-top px-3" src="{{ asset('Icon/fav.png') }}"
-                            width="auto" height="25">
-                    </a>
-                </div>
-                <div class="col px-0 pe-3">
-                    <a class="text-decoration-none" href="{{ route('signup') }}">
-                        <img class="d-inline-block align-text-top px-3" src="{{ asset('Icon/account.png') }}"
-                            width="auto" height="25">
-                    </a>
-                </div> --}}
-
                 <div class="col-6 px-0">
                     <a class="btn rounded-pill shadow-sm" href="{{ route('signup') }}" role="button"
                         style="background-color: #E67E22; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">Sign
@@ -146,9 +127,7 @@
 
     <div class="mb-4"><br><br></div>
 
-    <div class="px-0 py-0">
-        @yield('content_01')
-    </div>
+    @yield('content_01')
 
     @yield('footerx')
 

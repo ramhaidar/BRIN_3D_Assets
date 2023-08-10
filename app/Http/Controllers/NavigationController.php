@@ -54,4 +54,14 @@ class NavigationController extends Controller
             ] );
         }
     }
+
+    public function model_view ( Request $request )
+    {
+        if ( request ()->segment ( 1 ) != 'api' )
+        {
+            return view ( "model_view" )->with ( [ 
+                "activeNavItem" => "model_view",
+            ] );
+        }
+    }
 }
