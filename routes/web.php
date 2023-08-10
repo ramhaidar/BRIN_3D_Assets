@@ -43,3 +43,8 @@ Route::get ( '/signin', action: [
     NavigationController::class,
     'signin'
 ] )->name ( 'signin' );
+
+Route::get ( '/model', action: [ 
+    NavigationController::class,
+    'model_view'
+] )->name ( 'model_view' );
