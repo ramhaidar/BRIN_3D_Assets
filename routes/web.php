@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\CaptchaValidationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,9 @@ Route::get ( '/model', action: [
     NavigationController::class,
     'model_view'
 ] )->name ( 'model_view' );
+
+// CAPTCHA ROUTES
+Route::get('contact-form-captcha', [CaptchaValidationController::class, 'index']);
+Route::post('captcha-validation', [CaptchaValidationController::class, 'capthcaFormValidate']);
+Route::get('reload-captcha', [CaptchaValidationController::class, 'reloadCaptcha']);
+/// END CAPTCHA ROUTES
