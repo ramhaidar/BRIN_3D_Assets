@@ -22,7 +22,7 @@
                             <img class="align-text-top px-2" src="{{ asset('Logo/Logo BRIN_BIG.png') }}" width="auto"
                                 height="75">
                         </a>
-                        <div class="pt-5 mt-5 py-0 pe-5 me-5">
+                        <div class="pt-1 mt-5 py-0 pe-5 me-5">
                             <h1 class="poppins-bold">Sign In</h1>
                             <h3 class="pt-4 poppins-bold">Your Account</h3>
 
@@ -43,6 +43,21 @@
                                         aria-describedby="Password" placeholder="Password">
                                 </div>
 
+                                <label class="form-label poppins-regular" for="Password">Captcha</label>
+                                <div class="input-group mb-3 shadow-sm">
+                                    <span class="input-group-text"><i class="bi bi-robot"></i></span>
+
+                                    <input class="form-control" id="captcha" name="captcha" type="text"
+                                        placeholder="Enter Captcha">
+
+                                    <div class="captcha">
+                                        <span>{!! captcha_img() !!}</span>
+                                        <button class="btn btn-danger reload" id="reload" type="button">
+                                            ↻
+                                        </button>
+                                    </div>
+                                </div>
+
                                 <div class="px-0 py-0">
                                     <p class="poppins-regular">Don't have an account?
                                         <a class="poppins-regular" href="{{ route('signup') }}"
@@ -51,7 +66,7 @@
                                     </p>
                                 </div>
 
-                                <div class="d-grid gap-2 pt-5">
+                                <div class="d-grid gap-2 pt-2">
                                     <button class="btn btn-danger poppins-regular shadow-sm" type="submit"
                                         style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem;">Sign
                                         Up</button>
@@ -63,10 +78,32 @@
                 <div class="col d-flex mx-0 px-0 d-flex align-items-center justify-content-end"
                     style="background-color: transparent">
                     <img class="float-end" src="{{ asset('AboutUs/Gambar Gedung BRIN.png') }}" width="auto"
-                        height="700">
+                        height="650">
                 </div>
 
             </div>
         </div>
     </main>
+@endsection
+
+@section('bottomScript')
+    <script>
+        $('#reload').click(function() {
+            $.ajax({
+                type: 'GET',
+                url: 'reload-captcha',
+                success: function(data) {
+                    $(".captcha span").html(data.captcha);
+                    console.log(data.captcha);
+                }
+            });
+        });
+    </script>
+@endsection
+
+@section('topScript')
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @endsection
