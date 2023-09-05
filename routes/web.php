@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\CaptchaValidationController;
 
 /*
@@ -40,10 +42,34 @@ Route::get ( '/signup', action: [
     'signup'
 ] )->name ( 'signup' );
 
+Route::post (
+    '/signup',
+    [ 
+        RegistrationController::class,
+        'register'
+    ]
+)->name ( 'register' );
+
 Route::get ( '/signin', action: [ 
     NavigationController::class,
     'signin'
 ] )->name ( 'signin' );
+
+Route::post (
+    '/signin',
+    [ 
+        LoginController::class,
+        'login'
+    ]
+)->name ( 'login' );
+
+Route::post (
+    '/logout',
+    [ 
+        LoginController::class,
+        'logout'
+    ]
+)->name ( 'logout' );
 
 Route::get ( '/model', action: [ 
     NavigationController::class,
@@ -51,7 +77,7 @@ Route::get ( '/model', action: [
 ] )->name ( 'model_view' );
 
 // CAPTCHA ROUTES
-Route::get('contact-form-captcha', [CaptchaValidationController::class, 'index']);
-Route::post('captcha-validation', [CaptchaValidationController::class, 'capthcaFormValidate']);
-Route::get('reload-captcha', [CaptchaValidationController::class, 'reloadCaptcha']);
+Route::get ( 'contact-form-captcha', [ CaptchaValidationController::class, 'index' ] );
+Route::post ( 'captcha-validation', [ CaptchaValidationController::class, 'capthcaFormValidate' ] );
+Route::get ( 'reload-captcha', [ CaptchaValidationController::class, 'reloadCaptcha' ] );
 /// END CAPTCHA ROUTES
