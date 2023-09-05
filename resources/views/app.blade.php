@@ -82,6 +82,30 @@
 </head>
 
 <body>
+    @auth
+        <div class="modal fade" id="logoutModal" data-bs-backdrop="static" data-bs-keyboard="false"
+            aria-labelledby="logoutModalLabel" aria-hidden="true" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="logoutModalLabel">Are you sure to log out?</h5>
+                        <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to log out of your account?
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancel</button>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button class="btn btn-danger" type="submit">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endauth
+
     <nav
         class="navbar navbar-expand-md navbar-light fixed-top mb-4 py-4 bg-light border-bottom border-secondary-subtle">
         <div class="container-fluid">
@@ -113,16 +137,31 @@
         </div>
         <div class="container-fluid justify-content-end">
             <div class="d-flex flex-row align-items-end">
-                <div class="col-6 px-0">
-                    <a class="btn rounded-pill shadow-sm" href="{{ route('signup') }}" role="button"
-                        style="background-color: #E67E22; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">Sign
-                        Up</a>
-                </div>
-                <div class="col-6 px-0 me-5">
-                    <a class="btn rounded-pill shadow-sm" href="{{ route('signin') }}" role="button"
-                        style="background-color: #3498DB; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">Sign
-                        In</a>
-                </div>
+                @guest
+                    <div class="col-6 px-0">
+                        <a class="btn rounded-pill shadow-sm" href="{{ route('signup') }}" role="button"
+                            style="background-color: #E67E22; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">Sign
+                            Up</a>
+                    </div>
+                    <div class="col-6 px-0 me-5">
+                        <a class="btn rounded-pill shadow-sm" href="{{ route('signin') }}" role="button"
+                            style="background-color: #3498DB; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">Sign
+                            In</a>
+                    </div>
+                @endguest
+                @auth
+                    <div class="col-6 px-0">
+                        <a class="btn rounded-pill shadow-sm" href="{{ route('home') }}" role="button"
+                            style="background-color: green; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">Dashboard</a>
+                    </div>
+                    <div class="col-6 px-0 me-5">
+                        <button class="btn rounded-pill shadow-sm" data-bs-toggle="modal" data-bs-target="#logoutModal"
+                            type="button"
+                            style="background-color: grey; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">
+                            Sign Out
+                        </button>
+                    </div>
+                @endauth
             </div>
         </div>
     </nav>

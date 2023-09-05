@@ -49,11 +49,62 @@
             right: 20px;
             border-radius: 50%;
         }
+
+        body.modal-open .supreme-container {
+            -webkit-filter: blur(3px);
+            -moz-filter: blur(3px);
+            -o-filter: blur(3px);
+            -ms-filter: blur(3px);
+            filter: blur(3px);
+        }
     </style>
 @endsection
 
 @section('content_01')
-    <main class="container-fluid px-0 py-0 h-100 w-100">
+    @if ($errors->any() || session()->has('success'))
+        <div class="modal fade" id="popupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Notification</h5>
+                        <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="pt-2">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @if (session()->has('success'))
+                            <div class="alert alert-success">
+                                <ul class="pt-2">
+                                    {{ session()->get('success') }}
+                                </ul>
+                            </div>
+                        @endif
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                $("#popupModal").modal('show');
+            });
+        </script>
+    @endif
+
+    <main class="container-fluid supreme-container px-0 py-0 h-100 w-100">
         <div class="pt-5">
             <div class="container-fluid d-flex justify-content-center align-items-center w-50">
                 <form class="container-fluid d-flex border border-dark-subtle rounded-3 p-1 px-2 pe-0 me-0 w-100">
@@ -577,4 +628,11 @@
 
         @yield('footer')
     </main>
+@endsection
+
+@section('topScript')
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @endsection

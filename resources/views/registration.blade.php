@@ -9,11 +9,62 @@
         .container-fluid {
             height: 92.5%;
         }
+
+        body.modal-open .supreme-container {
+            -webkit-filter: blur(3px);
+            -moz-filter: blur(3px);
+            -o-filter: blur(3px);
+            -ms-filter: blur(3px);
+            filter: blur(3px);
+        }
     </style>
 @endsection
 
 @section('content_01')
-    <main class="container-fluid h-100 w-100" style="background-color: transparent; min-height: 92.2vh;">
+    @if ($errors->any() || session()->has('success'))
+        <div class="modal fade" id="popupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Notification</h5>
+                        <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul class="pt-2">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        @if (session()->has('success'))
+                            <div class="alert alert-success">
+                                <ul class="pt-2">
+                                    {{ session()->get('success') }}
+                                </ul>
+                            </div>
+                        @endif
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                $("#popupModal").modal('show');
+            });
+        </script>
+    @endif
+
+    <main class="container-fluid supreme-container h-100 w-100" style="background-color: transparent; min-height: 92.2vh;">
         <div class="flex-fill pt-3 px-0 py-0 h-100">
             <div class="row px-0 py-0 h-100" style="background-color: transparent">
                 <div class="col-6 px-0 py-0 h-100" style="background-color: #F6F6F6">
@@ -26,35 +77,35 @@
                             <h1 class="poppins-bold">Sign Up</h1>
                             <h3 class="pt-4 poppins-bold">Your New Account</h3>
 
-                            <form class="pt-3" action="" method="POST">
+                            <form class="pt-3" action="" method="POST" autocomplete="off">
                                 @CSRF
                                 <label class="form-label poppins-regular" for="Username">Choose a Username</label>
                                 <div class="input-group mb-3 shadow-sm">
                                     <span class="input-group-text"><i class="bi bi-person"></i></span>
                                     <span class="input-group-text poppins-regular">domain.id/u/</span>
-                                    <input class="form-control poppins-regular" id="Username" type="username"
-                                        aria-describedby="Username" placeholder="Username">
+                                    <input class="form-control poppins-regular" id="Username" name="Username"
+                                        type="username" aria-describedby="Username" placeholder="Username">
                                 </div>
 
                                 <label class="form-label poppins-regular" for="Email">E-Mail</label>
                                 <div class="input-group mb-3 shadow-sm">
                                     <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                                    <input class="form-control poppins-regular" id="Email" type="email"
+                                    <input class="form-control poppins-regular" id="Email" name="Email" type="email"
                                         aria-describedby="Email" placeholder="you@domain.com">
                                 </div>
 
                                 <label class="form-label poppins-regular" for="Password">Create Password</label>
                                 <div class="input-group mb-3 shadow-sm">
                                     <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
-                                    <input class="form-control poppins-regular" id="Password" type="password"
-                                        aria-describedby="Password" placeholder="Password">
+                                    <input class="form-control poppins-regular" id="Password" name='Password'
+                                        type="password" aria-describedby="Password" placeholder="Password">
                                 </div>
 
-                                <label class="form-label poppins-regular" for="Password">Captcha</label>
+                                <label class="form-label poppins-regular" for="Captcha">Captcha</label>
                                 <div class="input-group mb-3 shadow-sm">
                                     <span class="input-group-text"><i class="bi bi-robot"></i></span>
 
-                                    <input class="form-control" id="captcha" name="captcha" type="text"
+                                    <input class="form-control" id="Captcha" name="Captcha" type="text"
                                         placeholder="Enter Captcha">
 
                                     <div class="captcha">
@@ -93,6 +144,13 @@
     </main>
 @endsection
 
+@section('topScript')
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+@endsection
+
 @section('bottomScript')
     <script>
         $('#reload').click(function() {
@@ -106,11 +164,4 @@
             });
         });
     </script>
-@endsection
-
-@section('topScript')
-    <!-- JQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @endsection
