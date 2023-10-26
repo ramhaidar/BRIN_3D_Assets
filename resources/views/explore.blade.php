@@ -53,16 +53,38 @@
 
         .download-btn {
             position: absolute;
-            top: -25px;
-            right: 20px;
+            top: -35px;
+            right: -10px;
             border-radius: 50%;
+        }
+
+        /* Define the styles for the normal state of the button */
+        .customButton {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Define the styles for the button when it's disabled */
+        .customButton:disabled {
+            background-color: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+
+        .model-footer-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
         }
     </style>
 @endsection
 
 @section('content_01')
 
-    <main class="container px-0 py-0" style="background-color: transparent">
+    <main class="container px-5 py-0" style="background-color: transparent; min-width: 100%">
         <div class="container-fluid px-0 py-0" style="background-color: transparent">
             <div class="flex-fill pt-3 px-0 py-0">
                 <div class="container-fluid px-0 py-0">
@@ -72,7 +94,9 @@
                             <span class="input-group-text border border-0 bg-transparent"><img
                                     src="{{ asset('Icon/home_search.png') }}" width="auto" height="auto"></span>
                             <input class="form-control me-0 pe-0 border border-0 poppins-regular bg-transparent"
-                                type="search" aria-label="Search" placeholder="Search for assets">
+                                id="SearchBox" name="searchTerm" type="search" aria-label="Search"
+                                style="text-align: center;" autocomplete="off"
+                                placeholder="Search for assets — Type the terms and hit Enter">
                         </form>
                     </div>
 
@@ -80,7 +104,7 @@
 
                         <div class="col-3 px-5 py-3" style="background-color: transparent">
                             <h4 class="poppins-bold">Categories</h4>
-                            <ul class="nav flex-column">
+                            <ul class="nav flex-column" id="NavCategories">
                                 <li class="nav-item px-0 py-0">
                                     <a class="nav-link px-0 py-1 ps-2 poppins-custom d-flex align-items-center active"
                                         href="#">
@@ -121,37 +145,37 @@
                             <hr class="px-0 py-0" style="border: none; height: 3px; background-color: black;">
 
                             <h4 class="poppins-bold">Filters</h4>
-                            <div class="px-0 py-0 ps-2">
+                            <div class="px-0 py-0 ps-2" id="FormCheckCategories">
                                 <div class="form-check">
-                                    <input class="form-check-input" id="CheckAvatar" type="checkbox" value="">
+                                    <input class="form-check-input" id="CheckAvatar" type="checkbox" checked>
                                     <label class="form-check-label poppins-custom" for="CheckAvatar"
                                         style="vertical-align: 2px">
                                         Avatar
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" id="CheckBangunan" type="checkbox" value="">
+                                    <input class="form-check-input" id="CheckBangunan" type="checkbox" checked>
                                     <label class="form-check-label poppins-custom" for="CheckBangunan"
                                         style="vertical-align: 2px">
                                         Bangunan
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" id="CheckLaboratorium" type="checkbox" value="">
+                                    <input class="form-check-input" id="CheckLaboratorium" type="checkbox" checked>
                                     <label class="form-check-label poppins-custom" for="CheckLaboratorium"
                                         style="vertical-align: 2px">
                                         Laboratorium
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" id="CheckPeralatanRiset" type="checkbox" value="">
+                                    <input class="form-check-input" id="CheckPeralatanRiset" type="checkbox" checked>
                                     <label class="form-check-label poppins-custom" for="CheckPeralatanRiset"
                                         style="vertical-align: 2px">
                                         Peralatan Riset
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" id="CheckPrototipe" type="checkbox" value="">
+                                    <input class="form-check-input" id="CheckPrototipe" type="checkbox" checked>
                                     <label class="form-check-label poppins-custom" for="CheckPrototipe"
                                         style="vertical-align: 2px">
                                         Prototipe
@@ -162,7 +186,7 @@
                             <hr class="px-0 py-0" style="border: none; height: 3px; background-color: black;">
 
                             <h4 class="poppins-bold">Sorts</h4>
-                            <div class="px-0 py-0 ps-2 d-flex flex-column">
+                            <div class="px-0 py-0 ps-2 d-flex flex-column" id="FormCheckSort">
                                 <div class="form-check">
                                     <input class="form-check-input" id="RadioTerbaru" name="RadioSorts" type="radio"
                                         checked>
@@ -179,476 +203,60 @@
                                     </label>
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="col px-0 py-0 mx-0 my-0" style="background-color: transparent">
-                            <h1 class="px-0 py-0 poppins-bold">Kebumian dan Maritim</h1>
+                            <h1 class="px-0 py-0 poppins-bold" id="ActiveCategory">Kebumian dan Maritim</h1>
 
-                            <div class="container w-100" style="max-width: 100%">
-                                <div class="container-fluid px-0 mx-0 my-4 py-0 pe-3 w-100"
-                                    style="background-color: transparent">
-                                    <div class="row row-cols-auto row-cols-lg-4 g-0 g-lg-3 px-0 py-0">
-                                        <!-- 001 Card -->
-                                        <div class="col">
-                                            <div class="card px-0 py-0 shadow-sm rounded-3">
-                                                <img class="customimg"
-                                                    src="{{ asset('Image/home_category_example/01.png') }}">
-                                                <div class="card-body">
-                                                    <a class="download-btn" href="#">
-                                                        <img class="img-fluid customShadow bg-transparent"
-                                                            src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                                                    </a>
-                                                    {{-- <a class="fav-btn" href="#">
-                                                    <img class="img-fluid customShadow bg-transparent"
-                                                        src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                                                </a> --}}
-                                                    <h5 class="card-title fw-medium poppins-regular">Maersk Ship</h5>
-                                                    <p class="card-text poppins-regular" style="color: #AEABAB">Dimas
-                                                        Rifki
-                                                    </p>
-                                                </div>
-                                                <div class="card-footer ms-0 ps-0">
-                                                    <div class="container ms-1">
-                                                        <div class="row">
-                                                            <div class="col justify-content-center align-content-center">
-                                                                <i class="bi bi-star-fill ps-0 ms-0 pe-1"
-                                                                    style="color: #006AFF"></i>
-                                                                <span class="text-dark text-center">4.6</span> <span
-                                                                    class="text-secondary">(24
-                                                                    Review)</span>
-                                                            </div>
-                                                            <div class="col-5 text-end">
-                                                                <a class="text-black text-decoration-underline"
-                                                                    href="#">Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                            <div class="container px-0 py-0 mx-0 my-0">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="container w-100 h-75 px-3 py-3"
+                                            style="min-height: 38vmax; max-width: 100%">
+                                            <div class="container-fluid px-0 mx-0 py-0 w-100"
+                                                style="background-color: transparent">
+                                                <div class="row row-cols-2 row-cols-lg-4 g-2 g-lg-3" id="ModelContainer"
+                                                    style="background-color: transparent">
+                                                    <!-- Loop for models will be handled via AJAX -->
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <!-- 002 Card -->
-                                        <div class="col">
-                                            <div class="card shadow-sm rounded-3">
-                                                <img class="customimg card-img-top"
-                                                    src="{{ asset('Image/home_category_example/02.png') }}">
-                                                <div class="card-body">
-                                                    <a class="download-btn" href="#">
-                                                        <img class="img-fluid customShadow bg-transparent"
-                                                            src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                                                    </a>
-                                                    {{-- <a class="fav-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
-                                                    <h5 class="card-title">Space Shuttle</h5>
-                                                    <p class="card-text text-secondary">Fitri Handayani</p>
-                                                </div>
-                                                <div class="card-footer ms-0 ps-0">
-                                                    <div class="container ms-1">
-                                                        <div class="row">
-                                                            <div class="col justify-content-center align-content-center">
-                                                                <i class="bi bi-star-fill ps-0 ms-0 pe-1"
-                                                                    style="color: #006AFF"></i>
-                                                                <span class="text-dark text-center">4.2</span> <span
-                                                                    class="text-secondary">(32
-                                                                    Review)</span>
-                                                            </div>
-                                                            <div class="col-5 text-end">
-                                                                <a class="text-black text-decoration-underline"
-                                                                    href="#">Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col w-100">
+                                        <hr class="px-0 py-0" style="color: transparent">
+                                    </div>
 
-                                        <!-- 003 Card -->
-                                        <div class="col">
-                                            <div class="card shadow-sm rounded-3">
-                                                <img class="customimg card-img-top"
-                                                    src="{{ asset('Image/home_category_example/03.png') }}">
-                                                <div class="card-body">
-                                                    <a class="download-btn" href="#">
-                                                        <img class="img-fluid customShadow bg-transparent"
-                                                            src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                                                    </a>
-                                                    {{-- <a class="fav-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
-                                                    <h5 class="card-title">Ford Model T-1924</h5>
-                                                    <p class="card-text text-secondary">Dufha Arista</p>
-                                                </div>
-                                                <div class="card-footer ms-0 ps-0">
-                                                    <div class="container ms-1">
-                                                        <div class="row">
-                                                            <div class="col justify-content-center align-content-center">
-                                                                <i class="bi bi-star-fill ps-0 ms-0 pe-1"
-                                                                    style="color: #006AFF"></i>
-                                                                <span class="text-dark text-center">4.0</span> <span
-                                                                    class="text-secondary">(27
-                                                                    Review)</span>
-                                                            </div>
-                                                            <div class="col-5 text-end">
-                                                                <a class="text-black text-decoration-underline"
-                                                                    href="#">Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col-12">
+                                        <div class="d-flex justify-content-center mb-4">
+                                            <button
+                                                class="btn d-flex align-items-center justify-content-center mx-1 customShadow"
+                                                id="PrevButton" type="button"
+                                                style="width: 50px; height: 30px; background-color: #BE3535; color: white;"
+                                                disabled>
+                                                <i class="bi bi-chevron-left"></i>
+                                            </button>
 
-                                        <!-- 004 Card -->
-                                        <div class="col">
-                                            <div class="card shadow-sm rounded-3">
-                                                <img class="customimg card-img-top"
-                                                    src="{{ asset('Image/home_category_example/04.png') }}">
-                                                <div class="card-body">
-                                                    <a class="download-btn" href="#">
-                                                        <img class="img-fluid customShadow bg-transparent"
-                                                            src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                                                    </a>
-                                                    {{-- <a class="fav-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
-                                                    <h5 class="card-title">Sci-fi Fighter</h5>
-                                                    <p class="card-text text-secondary">Risma Amaliyah</p>
-                                                </div>
-                                                <div class="card-footer ms-0 ps-0">
-                                                    <div class="container ms-1">
-                                                        <div class="row">
-                                                            <div class="col justify-content-center align-content-center">
-                                                                <i class="bi bi-star-fill ps-0 ms-0 pe-1"
-                                                                    style="color: #006AFF"></i>
-                                                                <span class="text-dark text-center">3.8</span> <span
-                                                                    class="text-secondary">(20
-                                                                    Review)</span>
-                                                            </div>
-                                                            <div class="col-5 text-end">
-                                                                <a class="text-black text-decoration-underline"
-                                                                    href="#">Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            <button
+                                                class="btn d-flex align-items-center justify-content-center mx-1 customShadow"
+                                                type="button"
+                                                style="width: 50px; height: 30px; background-color: #BE3535; color: white;">
+                                                <span class="text-center" id="PageIndicator">1</span>
+                                            </button>
 
-                                        <!-- 005 Card -->
-                                        <div class="col">
-                                            <div class="card shadow-sm rounded-3">
-                                                <img class="customimg card-img-top"
-                                                    src="{{ asset('Image/home_category_example/05.png') }}">
-                                                <div class="card-body">
-                                                    <a class="download-btn" href="#">
-                                                        <img class="img-fluid customShadow bg-transparent"
-                                                            src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                                                    </a>
-                                                    {{-- <a class="fav-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
-                                                    <h5 class="card-title">Beach Seashore</h5>
-                                                    <p class="card-text text-secondary">Haidarrudin Ramdhan</p>
-                                                </div>
-                                                <div class="card-footer ms-0 ps-0">
-                                                    <div class="container ms-1">
-                                                        <div class="row">
-                                                            <div class="col justify-content-center align-content-center">
-                                                                <i class="bi bi-star-fill ps-0 ms-0 pe-1"
-                                                                    style="color: #006AFF"></i>
-                                                                <span class="text-dark text-center">4.1</span> <span
-                                                                    class="text-secondary">(30
-                                                                    Review)</span>
-                                                            </div>
-                                                            <div class="col-5 text-end">
-                                                                <a class="text-black text-decoration-underline"
-                                                                    href="#">Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- 006 Card -->
-                                        <div class="col">
-                                            <div class="card shadow-sm rounded-3">
-                                                <img class="customimg card-img-top"
-                                                    src="{{ asset('Image/home_category_example/06.png') }}">
-                                                <div class="card-body">
-                                                    <a class="download-btn" href="#">
-                                                        <img class="img-fluid customShadow bg-transparent"
-                                                            src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                                                    </a>
-                                                    {{-- <a class="fav-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
-                                                    <h5 class="card-title">Lambo Aventador</h5>
-                                                    <p class="card-text text-secondary">Daffa Ferdiansyah</p>
-                                                </div>
-                                                <div class="card-footer ms-0 ps-0">
-                                                    <div class="container ms-1">
-                                                        <div class="row">
-                                                            <div class="col justify-content-center align-content-center">
-                                                                <i class="bi bi-star-fill ps-0 ms-0 pe-1"
-                                                                    style="color: #006AFF"></i>
-                                                                <span class="text-dark text-center">4.5</span> <span
-                                                                    class="text-secondary">(23
-                                                                    Review)</span>
-                                                            </div>
-                                                            <div class="col-5 text-end">
-                                                                <a class="text-black text-decoration-underline"
-                                                                    href="#">Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- 007 Card -->
-                                        <div class="col">
-                                            <div class="card shadow-sm rounded-3">
-                                                <img class="customimg card-img-top"
-                                                    src="{{ asset('Image/home_category_example/07.png') }}">
-                                                <div class="card-body">
-                                                    <a class="download-btn" href="#">
-                                                        <img class="img-fluid customShadow bg-transparent"
-                                                            src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                                                    </a>
-                                                    {{-- <a class="fav-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
-                                                    <h5 class="card-title">Rayonier Train</h5>
-                                                    <p class="card-text text-secondary">Daffa Ferdiansyah</p>
-                                                </div>
-                                                <div class="card-footer ms-0 ps-0">
-                                                    <div class="container ms-1">
-                                                        <div class="row">
-                                                            <div class="col justify-content-center align-content-center">
-                                                                <i class="bi bi-star-fill ps-0 ms-0 pe-1"
-                                                                    style="color: #006AFF"></i>
-                                                                <span class="text-dark text-center">4.21</span> <span
-                                                                    class="text-secondary">(28
-                                                                    Review)</span>
-                                                            </div>
-                                                            <div class="col-5 text-end">
-                                                                <a class="text-black text-decoration-underline"
-                                                                    href="#">Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- 008 Card -->
-                                        <div class="col">
-                                            <div class="card shadow-sm rounded-3">
-                                                <img class="customimg card-img-top"
-                                                    src="{{ asset('Image/home_category_example/08.png') }}">
-                                                <div class="card-body">
-                                                    <a class="download-btn" href="#">
-                                                        <img class="img-fluid customShadow bg-transparent"
-                                                            src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                                                    </a>
-                                                    {{-- <a class="fav-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
-                                                    <h5 class="card-title">3D Toolkit</h5>
-                                                    <p class="card-text text-secondary">Fitri Handayani</p>
-                                                </div>
-                                                <div class="card-footer ms-0 ps-0">
-                                                    <div class="container ms-1">
-                                                        <div class="row">
-                                                            <div class="col justify-content-center align-content-center">
-                                                                <i class="bi bi-star-fill ps-0 ms-0 pe-1"
-                                                                    style="color: #006AFF"></i>
-                                                                <span class="text-dark text-center">3.92</span> <span
-                                                                    class="text-secondary">(35 Review)</span>
-                                                            </div>
-                                                            <div class="col-5 text-end">
-                                                                <a class="text-black text-decoration-underline"
-                                                                    href="#">Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- 009 Card -->
-                                        <div class="col">
-                                            <div class="card shadow-sm rounded-3">
-                                                <img class="customimg card-img-top"
-                                                    src="{{ asset('Image/home_category_example/09.png') }}">
-                                                <div class="card-body">
-                                                    <a class="download-btn" href="#">
-                                                        <img class="img-fluid customShadow bg-transparent"
-                                                            src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                                                    </a>
-                                                    {{-- <a class="fav-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
-                                                    <h5 class="card-title">3D Toolkit</h5>
-                                                    <p class="card-text text-secondary">Fitri Handayani</p>
-                                                </div>
-                                                <div class="card-footer ms-0 ps-0">
-                                                    <div class="container ms-1">
-                                                        <div class="row">
-                                                            <div class="col justify-content-center align-content-center">
-                                                                <i class="bi bi-star-fill ps-0 ms-0 pe-1"
-                                                                    style="color: #006AFF"></i>
-                                                                <span class="text-dark text-center">3.92</span> <span
-                                                                    class="text-secondary">(35
-                                                                    Review)</span>
-                                                            </div>
-                                                            <div class="col-5 text-end">
-                                                                <a class="text-black text-decoration-underline"
-                                                                    href="#">Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- 010 Card -->
-                                        <div class="col">
-                                            <div class="card shadow-sm rounded-3">
-                                                <img class="customimg card-img-top"
-                                                    src="{{ asset('Image/home_category_example/10.png') }}">
-                                                <div class="card-body">
-                                                    <a class="download-btn" href="#">
-                                                        <img class="img-fluid customShadow bg-transparent"
-                                                            src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                                                    </a>
-                                                    {{-- <a class="fav-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
-                                                    <h5 class="card-title">Space Shuttle NASA</h5>
-                                                    <p class="card-text text-secondary">Dimas Rifki</p>
-                                                </div>
-                                                <div class="card-footer ms-0 ps-0">
-                                                    <div class="container ms-1">
-                                                        <div class="row">
-                                                            <div class="col justify-content-center align-content-center">
-                                                                <i class="bi bi-star-fill ps-0 ms-0 pe-1"
-                                                                    style="color: #006AFF"></i>
-                                                                <span class="text-dark text-center">4.2</span> <span
-                                                                    class="text-secondary">(21
-                                                                    Review)</span>
-                                                            </div>
-                                                            <div class="col-5 text-end">
-                                                                <a class="text-black text-decoration-underline"
-                                                                    href="#">Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- 011 Card -->
-                                        <div class="col">
-                                            <div class="card shadow-sm rounded-3">
-                                                <img class="customimg card-img-top"
-                                                    src="{{ asset('Image/home_category_example/11.png') }}">
-                                                <div class="card-body">
-                                                    <a class="download-btn" href="#">
-                                                        <img class="img-fluid customShadow bg-transparent"
-                                                            src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                                                    </a>
-                                                    {{-- <a class="fav-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
-                                                    <h5 class="card-title">RL-10 Rocket Engine</h5>
-                                                    <p class="card-text text-secondary">Dufha Arista</p>
-                                                </div>
-                                                <div class="card-footer ms-0 ps-0">
-                                                    <div class="container ms-1">
-                                                        <div class="row">
-                                                            <div class="col justify-content-center align-content-center">
-                                                                <i class="bi bi-star-fill ps-0 ms-0 pe-1"
-                                                                    style="color: #006AFF"></i>
-                                                                <span class="text-dark text-center">4.5</span> <span
-                                                                    class="text-secondary">(37
-                                                                    Review)</span>
-                                                            </div>
-                                                            <div class="col-5 text-end">
-                                                                <a class="text-black text-decoration-underline"
-                                                                    href="#">Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- 012 Card -->
-                                        <div class="col">
-                                            <div class="card shadow-sm rounded-3">
-                                                <img class="customimg card-img-top"
-                                                    src="{{ asset('Image/home_category_example/12.png') }}">
-                                                <div class="card-body">
-                                                    <a class="download-btn" href="#">
-                                                        <img class="img-fluid customShadow bg-transparent"
-                                                            src="{{ asset('Icon/home_assets_icon/share.png') }}">
-                                                    </a>
-                                                    {{-- <a class="fav-btn" href="#">
-                                <img class="img-fluid customShadow bg-transparent"
-                                    src="{{ asset('Icon/home_assets_icon/fav.png') }}">
-                            </a> --}}
-                                                    <h5 class="card-title">Ocean Gate TItan</h5>
-                                                    <p class="card-text text-secondary">Dimas Rifki</p>
-                                                </div>
-                                                <div class="card-footer ms-0 ps-0">
-                                                    <div class="container ms-1">
-                                                        <div class="row">
-                                                            <div class="col justify-content-center align-content-center">
-                                                                <i class="bi bi-star-fill ps-0 ms-0 pe-1"
-                                                                    style="color: #006AFF"></i>
-                                                                <span class="text-dark text-center">4.7</span> <span
-                                                                    class="text-secondary">(49
-                                                                    Review)</span>
-                                                            </div>
-                                                            <div class="col-5 text-end">
-                                                                <a class="text-black text-decoration-underline"
-                                                                    href="#">Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <button
+                                                class="btn d-flex align-items-center justify-content-center mx-1 customShadow"
+                                                id="NextButton" type="button"
+                                                style="width: 50px; height: 30px; background-color: #BE3535; color: white;"
+                                                disabled>
+                                                <i class="bi bi-chevron-right"></i>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="w-100 py-0 px-0"></div>
-
-                            <div class="container justify-content-center align-items-center w-100 py-4 mb-4"
-                                style="background-color: transparent">
-                                <form class="container-fluid d-flex justify-content-center">
-                                    <button class="btn w-50 rounded-pill shadow-sm poppins-bold"
-                                        style="background-color: #F5F5F5;">Load
-                                        More</button>
-                                </form>
-                            </div>
                         </div>
-
                     </div>
 
                     <div class="container-fluid px-0 py-0">
@@ -662,4 +270,331 @@
             @extends('footer')
         </div>
     </main>
+@endsection
+
+@section('bottomScript')
+    <script>
+        window.addEventListener('load', function() {
+            document.querySelector('#Loader').style.display = 'none';
+        });
+    </script>
+
+    <script>
+        let currentPage = 1;
+        let currentCategory = $("#NavCategories .nav-item a.active").parent().index() + 1;
+        let currentFilters = [];
+        $("#FormCheckCategories .form-check-input:checked").each(function() {
+            currentFilters.push($(this).parent().index() + 1);
+        });
+        let currentSort;
+        $("#FormCheckSort .form-check-input").each(function(index) {
+            if ($(this).is(":checked")) {
+                currentSort = index === 0 ? "Terbaru" : "Terlama";
+            }
+        });
+        console.log(currentPage, currentCategory, currentFilters, currentSort);
+
+        let searchMode = false;
+
+        function loadModels(page, category, filters, sort) {
+            $.ajax({
+                url: '/fetchExploreModel',
+                method: 'GET',
+                data: {
+                    page: page,
+                    category: category,
+                    filters: filters,
+                    sort: sort
+                },
+                success: function(data) {
+                    console.log(page, category, filters, sort);
+                    console.log(data);
+                    var models = data.models;
+                    var nextModels = data.nextModels;
+                    console.log('Models:', models);
+                    console.log('Likes:', models.likes);
+                    var modelsContainer = $('#ModelContainer');
+                    if (models.length === 0) {
+                        modelsContainer.empty();
+                        if (currentPage > 1) {
+                            currentPage--;
+                            loadModels(currentPage, currentCategory, currentFilters, currentSort);
+                            $("#PageIndicator").text(currentPage);
+                        }
+                        $("#NextButton").attr("disabled", "disabled");
+                        return;
+                    }
+                    if (data.nextModels.length === 0) {
+                        $("#NextButton").attr("disabled", "disabled");
+                    } else {
+                        $("#NextButton").removeAttr("disabled");
+                    }
+                    modelsContainer.empty();
+                    $.each(models, function(index, model) {
+                        var modelHtml = `
+                            <!-- The Card -->
+                            <div class="col">
+                                <div class="card px-0 py-0 shadow-sm rounded-3">
+                                    <img class="customimg" src="{{ asset('storage/Models/${model.user.username}/${model.sha3_hash}/Thumbnail.png') }}">
+                                    <div class="card-body">
+                                        <button class="customButton download-btn" onclick="ShareModel('{{ route('model_view') }}/${model.sha3_hash.substring(0, 10)}')" type="button">
+                                            <img class="img-fluid customShadow bg-transparent"
+                                                src="{{ asset('Icon/home_assets_icon/share.png') }}">
+                                        </button>
+                                        <h5 class="card-title fw-medium poppins-regular">${model.name}</h5>
+                                        <p class="card-text poppins-regular" style="color: #AEABAB">
+                                            ${model.user.username}
+                                        </p>
+                                    </div>
+                                    <div class="card-footer ms-0 ps-0">
+                                        <div class="container ms-1">
+                                            <div class="row d-flex justify-content-start align-content-center">
+                                                <div class="col-2 ms-3 px-0 py-0 mx-0 my-0">
+                                                    <i class="bi bi-hand-thumbs-up ps-0 ms-0 pe-1 model-footer-text"></i>
+                                                    <span class="text-dark text-center model-footer-text">${model.likes.length}</span>
+                                                </div>
+                                                <div class="col-2 px-0 py-0 mx-0 my-0">
+                                                    <i class="bi bi-eye ps-0 ms-0 pe-1 model-footer-text"></i>
+                                                    <span class="text-secondary model-footer-text">${model.view_count}</span>
+                                                </div>
+                                                <div class="col-2 px-0 py-0 mx-0 my-0">
+                                                    <i class="bi bi-cloud-arrow-down ps-0 ms-0 pe-1 model-footer-text"></i>
+                                                    <span class="text-secondary model-footer-text">${model.downloads.length}</span>
+                                                </div>
+                                                <div class="col text-end">
+                                                    <a class="text-black text-decoration-underline model-footer-text"
+                                                        href="/model/${model.sha3_hash}">Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        modelsContainer.append(modelHtml);
+                    });
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        loadModels(currentPage, currentCategory, currentFilters, currentSort);
+
+        $("#NavCategories .nav-item a").click(function() {
+            currentPage = 1;
+            $("#PrevButton").attr("disabled", "disabled");
+            $("#NextButton").attr("disabled", "disabled");
+            $("#NavCategories .nav-item a.active").removeClass("active");
+            $(this).addClass("active");
+            currentCategory = $(this).parent().index() + 1;
+            let activeCategoryText = $(this).text();
+            $("#ActiveCategory").text(activeCategoryText);
+
+            if (searchMode) {
+                searchModels(currentPage, searchTerm, currentCategory, currentFilters, currentSort);
+
+            } else {
+                loadModels(currentPage, currentCategory, currentFilters, currentSort);
+            }
+
+            $("#PageIndicator").text(currentPage);
+        });
+
+        $("#FormCheckCategories .form-check-input").click(function() {
+            currentPage = 1;
+            currentFilters = [];
+            $("#FormCheckCategories .form-check-input:checked").each(function() {
+                currentFilters.push($(this).parent().index() + 1);
+            });
+
+            if (searchMode) {
+                searchModels(currentPage, searchTerm, currentCategory, currentFilters, currentSort);
+
+            } else {
+                loadModels(currentPage, currentCategory, currentFilters, currentSort);
+            }
+
+            $("#PageIndicator").text(currentPage);
+        });
+
+        $("#FormCheckSort .form-check-input").click(function() {
+            currentPage = 1;
+            let index = $(this).parent().index();
+            currentSort = index === 0 ? "Terbaru" : "Terlama";
+
+            if (searchMode) {
+                searchModels(currentPage, searchTerm, currentCategory, currentFilters, currentSort);
+
+            } else {
+                loadModels(currentPage, currentCategory, currentFilters, currentSort);
+            }
+
+            $("#PageIndicator").text(currentPage);
+        });
+
+        $('#NextButton').on('click', function(event) {
+            event.preventDefault();
+            currentPage++;
+
+            if (searchMode) {
+                searchModels(currentPage, searchTerm, currentCategory, currentFilters, currentSort);
+
+            } else {
+                loadModels(currentPage, currentCategory, currentFilters, currentSort);
+            }
+
+            $("#PageIndicator").text(currentPage);
+            $("#PrevButton").removeAttr("disabled");
+        });
+
+        $('#PrevButton').on('click', function(event) {
+            if (currentPage > 1) {
+                event.preventDefault();
+                currentPage--;
+
+                if (searchMode) {
+                    searchModels(currentPage, searchTerm, currentCategory, currentFilters, currentSort);
+
+                } else {
+                    loadModels(currentPage, currentCategory, currentFilters, currentSort);
+                }
+
+                $("#PageIndicator").text(currentPage);
+                if (currentPage === 1) {
+                    $("#PrevButton").attr("disabled", "disabled");
+                    $("#NextButton").removeAttr("disabled");
+                }
+            }
+        });
+
+        function ShareModel(sha3_hash) {
+            $("#shareModal").modal('show');
+            var shareLinkElement = document.getElementById("shareLink");
+            if (shareLinkElement) {
+                shareLinkElement.textContent = (sha3_hash);
+            }
+        }
+
+        document.getElementById("shareLink").addEventListener("click", function() {
+            navigator.clipboard.writeText(document.getElementById("shareLink").textContent);
+        });
+
+        function searchModels(page, searchTerm, category, filters, sort) {
+            console.log(page, searchTerm, category, filters, sort);
+
+            $.ajax({
+                url: '/searchModelsExplore',
+                method: 'GET',
+                data: {
+                    page: page,
+                    searchTerm: searchTerm,
+                    category: category,
+                    filters: filters,
+                    sort: sort
+                },
+                success: function(data) {
+                    console.log(data);
+                    var models = data.models;
+                    var nextExists = data.nextExists;
+                    console.log('Models:', models);
+
+                    // console.log(page, searchTerm, category, filters, sort);
+
+                    var modelsContainer = $('#ModelContainer');
+                    if (models.length === 0) {
+                        modelsContainer.empty();
+                        if (currentPage > 1) {
+                            currentPage--;
+                            searchModels(currentPage, currentSearchTerm);
+                            $("#PageIndicator").text(currentPage);
+                        }
+                        $("#NextButton").attr("disabled", "disabled");
+                        return;
+                    }
+                    if (!nextExists) {
+                        $("#NextButton").attr("disabled", "disabled");
+                    } else {
+                        $("#NextButton").removeAttr("disabled");
+                    }
+                    modelsContainer.empty();
+                    $.each(models, function(index, model) {
+                        var modelHtml = `
+                            <!-- The Card -->
+                            <div class="col">
+                                <div class="card px-0 py-0 shadow-sm rounded-3">
+                                    <img class="customimg" src="{{ asset('storage/Models/${model.user.username}/${model.sha3_hash}/Thumbnail.png') }}">
+                                    <div class="card-body">
+                                        <button class="customButton download-btn" onclick="ShareModel('{{ route('model_view') }}/${model.sha3_hash.substring(0, 10)}')" type="button">
+                                            <img class="img-fluid customShadow bg-transparent"
+                                                src="{{ asset('Icon/home_assets_icon/share.png') }}">
+                                        </button>
+                                        <h5 class="card-title fw-medium poppins-regular">${model.name}</h5>
+                                        <p class="card-text poppins-regular" style="color: #AEABAB">
+                                            ${model.user.username}
+                                        </p>
+                                    </div>
+                                    <div class="card-footer ms-0 ps-0">
+                                        <div class="container ms-1">
+                                            <div class="row d-flex justify-content-start align-content-center">
+                                                <div class="col-2 ms-3 px-0 py-0 mx-0 my-0">
+                                                    <i class="bi bi-hand-thumbs-up ps-0 ms-0 pe-1 model-footer-text"></i>
+                                                    <span class="text-dark text-center model-footer-text">${model.likes.length}</span>
+                                                </div>
+                                                <div class="col-2 px-0 py-0 mx-0 my-0">
+                                                    <i class="bi bi-eye ps-0 ms-0 pe-1 model-footer-text"></i>
+                                                    <span class="text-secondary model-footer-text">${model.view_count}</span>
+                                                </div>
+                                                <div class="col-2 px-0 py-0 mx-0 my-0">
+                                                    <i class="bi bi-cloud-arrow-down ps-0 ms-0 pe-1 model-footer-text"></i>
+                                                    <span class="text-secondary model-footer-text">${model.downloads.length}</span>
+                                                </div>
+                                                <div class="col text-end">
+                                                    <a class="text-black text-decoration-underline model-footer-text"
+                                                        href="/model/${model.sha3_hash}">Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        modelsContainer.append(modelHtml);
+                    });
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+
+        var searchTerm = "";
+
+        $('#SearchBox').on('input', function(e) {
+            if ($(this).val().trim() === '') { // Check if search term is empty
+                $("#NextButton").removeAttr("disabled");
+                $("#ModelContainer").empty();
+                searchTerm = '';
+                searchMode = false;
+                loadModels(1, currentCategory, currentFilters, currentSort);
+                $("#PageIndicator").text(1);
+                $("#PrevButton").attr("disabled", "disabled");
+            }
+        }).on('keypress', function(e) {
+            if (e.which == 13) { // 13 is the Enter key
+                e.preventDefault(); // Prevent form submission
+                searchTerm = $(this).val();
+                if (searchTerm.trim() !== '') { // Check if search term is not empty
+                    $("#NextButton").removeAttr("disabled");
+                    $("#ModelContainer").empty();
+                    searchMode = true;
+                    searchModels(1, searchTerm, currentCategory, currentFilters, currentSort);
+                    $("#PageIndicator").text(1);
+                    $("#PrevButton").attr("disabled", "disabled");
+                }
+            }
+        });
+    </script>
+
 @endsection

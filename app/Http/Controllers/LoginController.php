@@ -9,40 +9,46 @@ use Illuminate\Contracts\Validation\Rule;
 
 class LoginController extends Controller
 {
-    public function login ( Request $request )
+    public function signin ( Request $request )
     {
         // First, validate the captcha
         $request->validate ( [ 
             'Captcha'  => [ 'required', new CheckCaptcha ],
-
-            'Username' => [ 'required', 'min:6', 'exists:users,username' ],
+            'Username' => [ 'required' ],
             'Password' => [ 'required', 'min:6' ],
         ] );
 
-        $request->merge ( [ 
-            'username' => $request->input ( 'Username' ),
-            'password' => $request->input ( 'Password' ),
-        ] );
+        $usernameOrEmail = $request->input ( 'Username' );
+        $password        = $request->input ( 'Password' );
 
-        // Retrieve the form data
-        $credentials = $request->only ( 'username', 'password' );
-
-        // Attempt to authenticate the user
-        if ( Auth::attempt ( $credentials ) )
+        // Attempt to authenticate the user by username or email
+        if (
+            Auth::attempt ( [ 'username' => $usernameOrEmail, 'password' => $password ] ) ||
+            Auth::attempt ( [ 'email' => $usernameOrEmail, 'password' => $password ] )
+        )
         {
             // Authentication was successful
-            return redirect ()->route ( 'home' )->with ( 'success', 'Login success!' );
+
+            // Check if the authenticated user has the "Admin" role
+            if ( Auth::user ()->roles ()->where ( 'name', 'Admin' )->exists () )
+            {
+                // Redirect to the Admin Dashboard
+                return redirect ()->route ( 'dashboard_admin_uploads' )->with ( 'success', 'Login success!' );
+            }
+            else
+            {
+                // Redirect to the User Dashboard
+                return redirect ()->route ( 'dashboard_user_uploads' )->with ( 'success', 'Login success!' );
+            }
         }
         else
         {
             // Authentication failed
-            return back ()->withErrors ( [ 
-                'message' => 'The provided credentials do not match our records.',
-            ] );
+            return redirect ()->back ()->with ( 'customError', 'Authentication failed. Please try again.' );
         }
     }
 
-    public function logout ( Request $request )
+    public function signout ( Request $request )
     {
         Auth::logout ();
 
@@ -50,7 +56,8 @@ class LoginController extends Controller
 
         $request->session ()->regenerateToken ();
 
-        return redirect ()->route ( 'home' );
+        // return redirect ()->route ( 'home' );
+        return back ()->with ( 'success', 'Logout success!' );
     }
 }
 

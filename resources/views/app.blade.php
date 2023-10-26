@@ -18,16 +18,15 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Play:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <!-- Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css"
-        rel="stylesheet"
-        integrity="sha512-ZnR2wlLbSbr8/c9AgLg3jQPAattCUImNsae6NHYnS9KrIwRdcY9DxFotXhNAKIKbAXlRnujIqUWoXXwqyFOeIQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap Icons 1.11.0 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
+        rel="stylesheet" />
 
-    <!-- Bootstrap 5.3.0 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap 5.3.2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- JQuery 3.7.1-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <!-- Custom CSS -->
     <style>
@@ -74,12 +73,64 @@
             object-fit: cover;
             aspect-ratio: 16/9;
         }
+
+        .customShadow {
+            filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+        }
+
+        body.modal-open .supreme-container {
+            -webkit-filter: blur(3px);
+            -moz-filter: blur(3px);
+            -o-filter: blur(3px);
+            -ms-filter: blur(3px);
+            filter: blur(3px);
+        }
+
+        .fav-btn {
+            position: absolute;
+            top: -25px;
+            right: 80px;
+            border-radius: 50%;
+        }
+
+        .download-btn {
+            position: absolute;
+            top: -35px;
+            right: -10px;
+            border-radius: 50%;
+        }
+
+        #Loader {
+            background-color: rgba(125, 125, 125, 0.5);
+            position: fixed;
+            z-index: 9999;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .center-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 
     @yield('customStyle')
 
     @yield('topScript')
 </head>
+
+<div class="container-fluid" id="Loader">
+    <div class="center-content">
+        <img src="{{ asset('Loading/Infinity.gif') }}" />
+    </div>
+</div>
 
 <body>
     @auth
@@ -88,26 +139,127 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="logoutModalLabel">Are you sure to log out?</h5>
+                        <h5 class="modal-title" id="logoutModalLabel">Sign Out</h5>
                         <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Are you sure you want to log out of your account?
+                        Are you sure you want to Sign Out of your account?
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancel</button>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button class="btn btn-danger" type="submit">Logout</button>
+                            <button class="btn btn-danger" type="submit" style="width: 100px">Yes</button>
                         </form>
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button"
+                            style="width: 100px">No</button>
                     </div>
                 </div>
             </div>
         </div>
     @endauth
 
+    <div class="modal fade" id="popupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Notification</h5>
+                    <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="pt-2">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    @if (session()->has('success'))
+                        <div class="alert alert-success">
+                            <ul class="pt-2">
+                                {{ session()->get('success') }}
+                            </ul>
+                        </div>
+                    @endif
+
+                    @if (session()->has('customError'))
+                        <div class="alert alert-danger">
+                            <ul class="pt-2">
+                                {{ session()->get('customError') }}
+                            </ul>
+                        </div>
+                    @endif
+
+                    <div class="alert alert-danger" id="customError2" style="display: none">
+                        <ul class="pt-2">
+                            <li id="customError2Text">yntkts</li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="shareModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title poppins-bold">Share this Asset</h5>
+                    <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <h6 class="ps-1 pb-2 poppins-regular" for="shareLink">Click to Copy</h6>
+                    <div class="alert alert-secondary">
+                        <ul class="pt-2">
+                            <a class="text-decoration-none" href="#">
+                                <li id="shareLink" onclick="copyToClipboard()">Link copied to clipboard</li>
+                            </a>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="notObjFileModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content px-0 py-0 pe-3">
+                <div class="modal-header">
+                    <h5 class="modal-title">Upload error</h5>
+                    <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-0 py-0">
+
+                    <div class="px-0 py-0">
+                        <ul class="pt-2">
+                            <p>Your file are not supported.
+                                Check out our supported formats and our exporters.
+                                You may contact us if you think this file type should be supported.</p>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <nav
-        class="navbar navbar-expand-md navbar-light fixed-top mb-4 py-4 bg-light border-bottom border-secondary-subtle">
+        class="supreme-container navbar navbar-expand-md navbar-light fixed-top mb-4 py-4 bg-light border-bottom border-secondary-subtle">
         <div class="container-fluid">
             <div class="ms-5"></div>
             <a class="navbar-brand" href="{{ route('home') }}">
@@ -150,17 +302,32 @@
                     </div>
                 @endguest
                 @auth
-                    <div class="col-6 px-0">
-                        <a class="btn rounded-pill shadow-sm" href="{{ route('home') }}" role="button"
-                            style="background-color: green; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">Dashboard</a>
-                    </div>
-                    <div class="col-6 px-0 me-5">
-                        <button class="btn rounded-pill shadow-sm" data-bs-toggle="modal" data-bs-target="#logoutModal"
-                            type="button"
-                            style="background-color: grey; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">
-                            Sign Out
-                        </button>
-                    </div>
+                    @if ($activeNavItem != 'dashboard_user_uploads')
+                        <div class="col-6 px-0">
+                            <a class="btn rounded-pill shadow-sm" href="{{ route('dashboard_user') }}" role="button"
+                                style="background-color: green; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">Dashboard</a>
+                        </div>
+                        <div class="col-6 px-0 me-5">
+                            <button class="btn rounded-pill shadow-sm" data-bs-toggle="modal"
+                                data-bs-target="#logoutModal" type="button"
+                                style="background-color: grey; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">
+                                Sign Out
+                            </button>
+                        </div>
+                    @else
+                        <div class="col-6 px-0">
+                            <a class="btn rounded-pill shadow-sm" href="{{ route('home') }}" role="button"
+                                style="background-color: blue; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">Home</a>
+                        </div>
+                        <div class="col-6 px-0 me-5">
+                            <button class="btn rounded-pill shadow-sm" data-bs-toggle="modal"
+                                data-bs-target="#logoutModal" type="button"
+                                style="background-color: grey; color: white; --bs-btn-padding-y: .40rem; --bs-btn-padding-x: 1.5rem;">
+                                Sign Out
+                            </button>
+                        </div>
+                    @endif
+
                 @endauth
             </div>
         </div>
@@ -168,14 +335,19 @@
 
     <div class="mb-4"><br><br></div>
 
-    @yield('content_01')
+    <div class="px-0 py-0 mx-0 my-0 w-100 h-100 supreme-container">
+        @yield('content_01')
 
-    @yield('footerx')
+        @yield('footerx')
+    </div>
 
-    <!-- Bootstrap 5.3.0 JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
-        integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Bootstrap 5.3.2 JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+    </script>
 
     @yield('bottomScript')
 </body>

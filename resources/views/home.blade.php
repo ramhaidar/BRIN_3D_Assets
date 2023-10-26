@@ -61,42 +61,7 @@
 @endsection
 
 @section('content_01')
-    @if ($errors->any() || session()->has('success'))
-        <div class="modal fade" id="popupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Notification</h5>
-                        <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul class="pt-2">
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
-                        @if (session()->has('success'))
-                            <div class="alert alert-success">
-                                <ul class="pt-2">
-                                    {{ session()->get('success') }}
-                                </ul>
-                            </div>
-                        @endif
-
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    @if ($errors->any() || session()->has('success') || session()->has('customError'))
         <script>
             $(document).ready(function() {
                 $("#popupModal").modal('show');
@@ -630,9 +595,10 @@
     </main>
 @endsection
 
-@section('topScript')
-    <!-- JQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+@section('bottomScript')
+    <script>
+        window.addEventListener('load', function() {
+            document.querySelector('#Loader').style.display = 'none';
+        });
+    </script>
 @endsection

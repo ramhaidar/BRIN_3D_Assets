@@ -53,3 +53,11 @@
         </div>
     </main>
 @endsection
+
+@section('bottomScript')
+    <script>
+        window.addEventListener('load', function() {
+            document.querySelector('#Loader').style.display = 'none';
+        });
+    </script>
+@endsection

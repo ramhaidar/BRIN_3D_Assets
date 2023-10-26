@@ -9,22 +9,23 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up () : void
     {
-        Schema::create('favorites', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('model_id');
-            $table->primary(['user_id', 'model_id']);
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('model_id')->references('id')->on('models')->onDelete('cascade');
-        });
+        Schema::create ( 'favorites', function (Blueprint $table)
+        {
+            $table->unsignedBigInteger ( 'user_id' );
+            $table->unsignedBigInteger ( 'model_id' );
+            $table->primary ( [ 'user_id', 'model_id' ] );
+            $table->foreign ( 'user_id' )->references ( 'id' )->on ( 'users' )->onDelete ( 'cascade' );
+            $table->foreign ( 'model_id' )->references ( 'id' )->on ( 'modelxs' )->onDelete ( 'cascade' );
+        } );
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down () : void
     {
-        Schema::dropIfExists('favorites');
+        Schema::dropIfExists ( 'favorites' );
     }
 };
