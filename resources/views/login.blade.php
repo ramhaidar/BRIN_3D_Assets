@@ -21,42 +21,7 @@
 @endsection
 
 @section('content_01')
-    @if ($errors->any() || session()->has('success'))
-        <div class="modal fade" id="popupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Notification</h5>
-                        <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul class="pt-2">
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
-                        @if (session()->has('success'))
-                            <div class="alert alert-success">
-                                <ul class="pt-2">
-                                    {{ session()->get('success') }}
-                                </ul>
-                            </div>
-                        @endif
-
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    @if ($errors->any() || session()->has('success') || session()->has('customError'))
         <script>
             $(document).ready(function() {
                 $("#popupModal").modal('show');
@@ -64,7 +29,7 @@
         </script>
     @endif
 
-    <main class="container-fluid supreme-container h-100 w-100" style="background-color: transparent; min-height: 92.2vh;">
+    <main class="container-fluid h-100 w-100" style="background-color: transparent; min-height: 92.2vh;">
         <div class="flex-fill pt-3 px-0 py-0 h-100">
             <div class="row px-0 py-0 h-100" style="background-color: transparent">
                 <div class="col-6 px-0 py-0 h-100" style="background-color: #F6F6F6">
@@ -84,14 +49,22 @@
                                     <span class="input-group-text"><i class="bi bi-person"></i></span>
                                     <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                                     <input class="form-control poppins-regular" id="Username" name="Username"
-                                        type="username" aria-describedby="Username" placeholder="Username or Email">
+                                        type="username" value="{{ old('Username') }}" aria-describedby="Username"
+                                        placeholder="Username or Email" required>
                                 </div>
 
                                 <label class="form-label poppins-regular" for="Password">Password</label>
                                 <div class="input-group mb-3 shadow-sm">
                                     <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
                                     <input class="form-control poppins-regular" id="Password" name="Password"
-                                        type="password" aria-describedby="Password" placeholder="Password">
+                                        type="password" value="{{ old('Password') }}" aria-describedby="Password"
+                                        placeholder="Password" required>
+
+                                    <div>
+                                        <button class="btn btn-danger toggle-password" id="toggle-password" type="button">
+                                            <i class="bi bi-eye-slash-fill"></i>
+                                        </button>
+                                    </div>
                                 </div>
 
                                 <label class="form-label poppins-regular" for="Captcha">Captcha</label>
@@ -99,7 +72,7 @@
                                     <span class="input-group-text"><i class="bi bi-robot"></i></span>
 
                                     <input class="form-control" id="captcha" name="Captcha" type="text"
-                                        placeholder="Enter Captcha">
+                                        placeholder="Enter Captcha" required>
 
                                     <div class="captcha">
                                         <span>{!! captcha_img() !!}</span>
@@ -119,8 +92,7 @@
 
                                 <div class="d-grid gap-2 pt-2">
                                     <button class="btn btn-danger poppins-regular shadow-sm" type="submit"
-                                        style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem;">Sign
-                                        Up</button>
+                                        style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: .5rem;">Sign In</button>
                                 </div>
                             </form>
                         </div>
@@ -139,6 +111,12 @@
 
 @section('bottomScript')
     <script>
+        window.addEventListener('load', function() {
+            document.querySelector('#Loader').style.display = 'none';
+        });
+    </script>
+
+    <script>
         $('#reload').click(function() {
             $.ajax({
                 type: 'GET',
@@ -150,11 +128,23 @@
             });
         });
     </script>
-@endsection
 
-@section('topScript')
-    <!-- JQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function() {
+            $(".toggle-password").click(function() {
+                var passwordField = $("#Password");
+                var icon = $(".toggle-password i");
+
+                if (passwordField.attr("type") === "password") {
+                    passwordField.attr("type", "text");
+                    icon.removeClass("bi-eye-slash-fill");
+                    icon.addClass("bi-eye-fill");
+                } else {
+                    passwordField.attr("type", "password");
+                    icon.removeClass("bi-eye-fill");
+                    icon.addClass("bi-eye-slash-fill");
+                }
+            });
+        });
+    </script>
 @endsection

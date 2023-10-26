@@ -93,13 +93,13 @@
                                     placeholder="Your Name">
                             </div>
                             <div class="d-flex flex-column flex-sm-row w-100 gap-2 py-2">
-                                <label class="visually-hidden" for="newsletter1">Email</label>
-                                <input class="form-control rounded-3 mulish-regular" id="newsletter1" type="text"
+                                <label class="visually-hidden" for="newsletter2">Email</label>
+                                <input class="form-control rounded-3 mulish-regular" id="newsletter2" type="text"
                                     placeholder="Your Email">
                             </div>
                             <div class="d-flex flex-column flex-sm-row w-100 gap-2 py-2">
-                                <label class="visually-hidden" for="newsletter1">Message</label>
-                                <textarea class="form-control rounded-3 mulish-regular" id="newsletter1" type="text" rows="3"
+                                <label class="visually-hidden" for="newsletter3">Message</label>
+                                <textarea class="form-control rounded-3 mulish-regular" id="newsletter3" type="text" rows="3"
                                     placeholder="Your Message"></textarea>
                             </div>
                             <div class="d-grid gap-2 col-2 py-2">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -12,10 +13,9 @@ class RegistrationController extends Controller
     public function register ( Request $request )
     {
         $request->validate ( [ 
-            'Captcha'  => [ 'required', new CheckCaptcha ],
-
-            'Username' => [ 'required', 'min:6', 'unique:users,username' ],
-            'Email'    => [ 
+            'Captcha'         => [ 'required', new CheckCaptcha ],
+            'Username'        => [ 'required', 'min:6', 'unique:users,username' ],
+            'Email'           => [ 
                 'required',
                 'email',
                 'unique:users,email',
@@ -27,7 +27,8 @@ class RegistrationController extends Controller
                     }
                 }
             ],
-            'Password' => [ 'required', 'min:6' ],
+            'Password'        => [ 'required', 'min:6' ],
+            'PasswordConfirm' => [ 'required', 'min:6', 'same:Password' ],
         ] );
 
         // Store the user...
@@ -37,10 +38,18 @@ class RegistrationController extends Controller
         $user->password = Hash::make ( $request->Password );
         $user->save ();
 
+        // Retrieve the "User" role
+        $role = Role::where ( 'name', 'User' )->first ();
+
+        // Associate the "User" role with the new user
+        if ( $role )
+        {
+            $user->roles ()->attach ( $role->id );
+        }
+
         // Redirect on success...
         return redirect ()->route ( 'signin' )->with ( 'success', 'Account Succesfully Registered!' );
     }
-
 }
 
 class CheckCaptcha implements Rule

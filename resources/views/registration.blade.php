@@ -65,7 +65,7 @@
     @endif
 
     <main class="container-fluid supreme-container h-100 w-100" style="background-color: transparent; min-height: 92.2vh;">
-        <div class="flex-fill pt-3 px-0 py-0 h-100">
+        <div class="flex-fill pt-2 px-0 py-0 h-100">
             <div class="row px-0 py-0 h-100" style="background-color: transparent">
                 <div class="col-6 px-0 py-0 h-100" style="background-color: #F6F6F6">
                     <div class="pt-5 px-5 ms-5">
@@ -73,32 +73,56 @@
                             <img class="align-text-top px-2" src="{{ asset('Logo/Logo BRIN_BIG.png') }}" width="auto"
                                 height="75">
                         </a>
-                        <div class="pt-1 mt-5 py-0 pe-5 me-5">
+                        <div class="pt-1 mt-3 py-0 pe-5 me-5">
                             <h1 class="poppins-bold">Sign Up</h1>
-                            <h3 class="pt-4 poppins-bold">Your New Account</h3>
+                            <h3 class="pt-2 poppins-bold">Your New Account</h3>
 
-                            <form class="pt-3" action="" method="POST" autocomplete="off">
+                            <form class="pt-2" action="" method="POST" autocomplete="off">
                                 @CSRF
                                 <label class="form-label poppins-regular" for="Username">Choose a Username</label>
                                 <div class="input-group mb-3 shadow-sm">
                                     <span class="input-group-text"><i class="bi bi-person"></i></span>
                                     <span class="input-group-text poppins-regular">domain.id/u/</span>
                                     <input class="form-control poppins-regular" id="Username" name="Username"
-                                        type="username" aria-describedby="Username" placeholder="Username">
+                                        type="username" value="{{ old('Username') }}" aria-describedby="Username"
+                                        placeholder="Username" required>
                                 </div>
 
                                 <label class="form-label poppins-regular" for="Email">E-Mail</label>
                                 <div class="input-group mb-3 shadow-sm">
                                     <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                                     <input class="form-control poppins-regular" id="Email" name="Email" type="email"
-                                        aria-describedby="Email" placeholder="you@domain.com">
+                                        value="{{ old('Email') }}" aria-describedby="Email" placeholder="you@domain.com"
+                                        required>
                                 </div>
 
                                 <label class="form-label poppins-regular" for="Password">Create Password</label>
                                 <div class="input-group mb-3 shadow-sm">
                                     <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
                                     <input class="form-control poppins-regular" id="Password" name='Password'
-                                        type="password" aria-describedby="Password" placeholder="Password">
+                                        type="password" value="{{ old('Password') }}" aria-describedby="Password"
+                                        placeholder="Password" required>
+
+                                    <div>
+                                        <button class="btn btn-danger toggle-password" id="toggle-password" type="button">
+                                            <i class="bi bi-eye-slash-fill"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <label class="form-label poppins-regular" for="Password">Password Confirmation</label>
+                                <div class="input-group mb-3 shadow-sm">
+                                    <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
+                                    <input class="form-control poppins-regular" id="PasswordConfirm" name='PasswordConfirm'
+                                        type="password" value="{{ old('Password') }}" aria-describedby="PasswordConfirm"
+                                        placeholder="Password" required>
+
+                                    <div>
+                                        <button class="btn btn-danger toggle-password-confirm" id="toggle-password-confirm"
+                                            type="button">
+                                            <i class="bi bi-eye-slash-fill"></i>
+                                        </button>
+                                    </div>
                                 </div>
 
                                 <label class="form-label poppins-regular" for="Captcha">Captcha</label>
@@ -144,14 +168,13 @@
     </main>
 @endsection
 
-@section('topScript')
-    <!-- JQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-@endsection
-
 @section('bottomScript')
+    <script>
+        window.addEventListener('load', function() {
+            document.querySelector('#Loader').style.display = 'none';
+        });
+    </script>
+
     <script>
         $('#reload').click(function() {
             $.ajax({
@@ -160,6 +183,44 @@
                 success: function(data) {
                     $(".captcha span").html(data.captcha);
                     console.log(data.captcha);
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $(".toggle-password").click(function() {
+                var passwordField = $("#Password");
+                var icon = $(".toggle-password i");
+
+                if (passwordField.attr("type") === "password") {
+                    passwordField.attr("type", "text");
+                    icon.removeClass("bi-eye-slash-fill");
+                    icon.addClass("bi-eye-fill");
+                } else {
+                    passwordField.attr("type", "password");
+                    icon.removeClass("bi-eye-fill");
+                    icon.addClass("bi-eye-slash-fill");
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $(".toggle-password-confirm").click(function() {
+                var passwordField = $("#PasswordConfirm");
+                var icon = $(".toggle-password-confirm i");
+
+                if (passwordField.attr("type") === "password") {
+                    passwordField.attr("type", "text");
+                    icon.removeClass("bi-eye-slash-fill");
+                    icon.addClass("bi-eye-fill");
+                } else {
+                    passwordField.attr("type", "password");
+                    icon.removeClass("bi-eye-fill");
+                    icon.addClass("bi-eye-slash-fill");
                 }
             });
         });
