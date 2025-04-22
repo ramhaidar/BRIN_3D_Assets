@@ -8,6 +8,6 @@
     "devDependencies": {
         "axios": "^1.1.2",
         "laravel-vite-plugin": "^1.2.0",
-        "vite": "^6.2.5"
+        "vite": "^6.3.2"
     }
 }
